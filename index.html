@@ -2405,7 +2405,7 @@ body{
 
       <!-- 1. Text -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Text</div>
+        <div class="ctrl-name">Text 文本</div>
         <div class="ctrl-demo">
           <span style="font-size:28px;font-weight:700;color:var(--label-primary)">Large Title</span>
           <span style="font-size:15px;font-weight:600;color:var(--label-primary)">Bold Text</span>
@@ -2425,7 +2425,7 @@ body{
 
       <!-- 2. Label -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Label</div>
+        <div class="ctrl-name">Label 标签</div>
         <div class="ctrl-demo">
           <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--label-primary)">
             <span style="font-size:18px">⭐</span><span>Favorites</span>
@@ -2447,7 +2447,7 @@ body{
 
       <!-- 3. AttributedString -->
       <div class="ctrl-card">
-        <div class="ctrl-name">AttributedString</div>
+        <div class="ctrl-name">AttributedString 富文本</div>
         <div class="ctrl-demo">
           <p style="font-size:15px;color:var(--label-primary);text-align:center;line-height:1.6">
             This is <strong>bold</strong>, this is <span style="color:var(--red)">red</span>, and this is a <a href="#" style="color:var(--accent);text-decoration:underline" onclick="return false">link</a>.
@@ -2469,7 +2469,7 @@ attr.link = URL(string: "https://...")</code></div>
 
       <!-- 4. Button -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Button</div>
+        <div class="ctrl-name">Button 按钮</div>
         <div class="ctrl-demo">
           <div class="ios-btn-row">
             <button class="ios-btn ios-btn-prominent">Prominent</button>
@@ -2488,7 +2488,7 @@ attr.link = URL(string: "https://...")</code></div>
 
       <!-- 5. TextField -->
       <div class="ctrl-card">
-        <div class="ctrl-name">TextField</div>
+        <div class="ctrl-name">TextField 文本输入框</div>
         <div class="ctrl-demo">
           <input class="ios-textfield" type="text" placeholder="Enter your name...">
           <div style="display:flex;align-items:center;gap:8px;width:100%;margin-top:6px">
@@ -2504,7 +2504,7 @@ TextField("Email", text: $email,
 
       <!-- 6. SecureField -->
       <div class="ctrl-card">
-        <div class="ctrl-name">SecureField</div>
+        <div class="ctrl-name">SecureField 密码输入框</div>
         <div class="ctrl-demo">
           <input class="ios-securefield" type="password" value="password123" readonly>
         </div>
@@ -2514,7 +2514,7 @@ TextField("Email", text: $email,
 
       <!-- 7. TextEditor -->
       <div class="ctrl-card">
-        <div class="ctrl-name">TextEditor</div>
+        <div class="ctrl-name">TextEditor 多行文本编辑器</div>
         <div class="ctrl-demo">
           <textarea class="ios-texteditor" placeholder="Write something...">SwiftUI TextEditor supports multi-line text editing with full keyboard support.</textarea>
         </div>
@@ -2524,7 +2524,7 @@ TextField("Email", text: $email,
 
       <!-- 8. Toggle -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Toggle</div>
+        <div class="ctrl-name">Toggle 开关</div>
         <div class="ctrl-demo">
           <div class="ios-toggle-row">
             <span class="ios-toggle-label">Airplane Mode</span>
@@ -2547,7 +2547,7 @@ Toggle("Wi-Fi", isOn: $wifi)
 
       <!-- 9. Slider -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Slider</div>
+        <div class="ctrl-name">Slider 滑块</div>
         <div class="ctrl-demo">
           <div class="ios-slider-row">
             <span style="font-size:13px;color:var(--label-tertiary)">🔈</span>
@@ -2570,7 +2570,7 @@ Slider(value: $step, in: 0...10, step: 1) {
 
       <!-- 10. Stepper -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Stepper</div>
+        <div class="ctrl-name">Stepper 步进器</div>
         <div class="ctrl-demo">
           <div class="ios-stepper">
             <span class="ios-stepper-label">Quantity: <span class="ios-stepper-val" id="stepVal">3</span></span>
@@ -2587,7 +2587,7 @@ Slider(value: $step, in: 0...10, step: 1) {
 
       <!-- 11. Menu -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Menu</div>
+        <div class="ctrl-name">Menu 菜单</div>
         <div class="ctrl-demo" style="position:relative">
           <button class="ios-menu-trigger" onclick="toggleCtrlMenu(this)">
             Actions ▾
@@ -2617,7 +2617,7 @@ Slider(value: $step, in: 0...10, step: 1) {
 
       <!-- 12. Picker -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Picker</div>
+        <div class="ctrl-name">Picker 选择器</div>
         <div class="ctrl-demo">
           <div style="margin-bottom:8px">
             <span style="font-size:12px;color:var(--label-tertiary)">Menu Style</span>
@@ -2657,7 +2657,7 @@ Slider(value: $step, in: 0...10, step: 1) {
 
       <!-- 13. DatePicker -->
       <div class="ctrl-card">
-        <div class="ctrl-name">DatePicker</div>
+        <div class="ctrl-name">DatePicker 日期选择器</div>
         <div class="ctrl-demo">
           <div style="font-size:12px;color:var(--label-tertiary);margin-bottom:6px">Graphical (Calendar)</div>
           <div class="ios-calendar" id="ctrlCalendar"></div>
@@ -2674,7 +2674,7 @@ Slider(value: $step, in: 0...10, step: 1) {
 
       <!-- 14. MultiDatePicker -->
       <div class="ctrl-card">
-        <div class="ctrl-name">MultiDatePicker</div>
+        <div class="ctrl-name">MultiDatePicker 多日期选择器</div>
         <div class="ctrl-demo">
           <div class="ios-calendar" id="multiDateCal"></div>
           <div style="font-size:11px;color:var(--label-tertiary);margin-top:6px;text-align:center" id="multiDateCount">0 dates selected</div>
@@ -2687,7 +2687,7 @@ Slider(value: $step, in: 0...10, step: 1) {
 
       <!-- 15. ColorPicker -->
       <div class="ctrl-card">
-        <div class="ctrl-name">ColorPicker</div>
+        <div class="ctrl-name">ColorPicker 颜色选择器</div>
         <div class="ctrl-demo">
           <div class="ios-color-row">
             <span class="ios-color-label">Accent Color</span>
@@ -2709,7 +2709,7 @@ Slider(value: $step, in: 0...10, step: 1) {
 
       <!-- 16. ProgressView -->
       <div class="ctrl-card">
-        <div class="ctrl-name">ProgressView</div>
+        <div class="ctrl-name">ProgressView 进度指示器</div>
         <div class="ctrl-demo">
           <div style="display:flex;align-items:center;gap:16px">
             <div>
@@ -2737,7 +2737,7 @@ ProgressView("Downloading...",
 
       <!-- 17. Gauge -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Gauge</div>
+        <div class="ctrl-name">Gauge 仪表盘</div>
         <div class="ctrl-demo">
           <div style="display:flex;gap:20px;align-items:flex-end;justify-content:center">
             <div style="text-align:center">
@@ -2770,7 +2770,7 @@ ProgressView("Downloading...",
 
       <!-- 18. Image -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Image (SF Symbols)</div>
+        <div class="ctrl-name">Image (SF Symbols) 图片（SF 符号）</div>
         <div class="ctrl-demo">
           <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center">
             <div style="text-align:center">
@@ -2796,7 +2796,7 @@ ProgressView("Downloading...",
 
       <!-- 19. AsyncImage -->
       <div class="ctrl-card">
-        <div class="ctrl-name">AsyncImage</div>
+        <div class="ctrl-name">AsyncImage 异步图片</div>
         <div class="ctrl-demo">
           <div style="display:flex;gap:12px;align-items:center">
             <div class="ios-async-img" id="asyncImgDemo">
@@ -2826,7 +2826,7 @@ ProgressView("Downloading...",
 
       <!-- 20. VStack / HStack / ZStack -->
       <div class="ctrl-card">
-        <div class="ctrl-name">VStack / HStack / ZStack</div>
+        <div class="ctrl-name">VStack / HStack / ZStack 垂直/水平/层叠堆栈</div>
         <div class="ctrl-demo">
           <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center">
             <div style="text-align:center">
@@ -2862,7 +2862,7 @@ ZStack { }  // layers front-to-back</code></div>
 
       <!-- 21. LazyVStack / LazyHStack -->
       <div class="ctrl-card">
-        <div class="ctrl-name">LazyVStack / LazyHStack</div>
+        <div class="ctrl-name">LazyVStack / LazyHStack 懒加载堆栈</div>
         <div class="ctrl-demo">
           <div style="font-size:13px;color:var(--label-primary);text-align:center;padding:8px 0">
             <div style="font-size:11px;color:var(--label-tertiary);margin-bottom:6px">Only creates views when visible (on-demand rendering)</div>
@@ -2886,7 +2886,7 @@ ZStack { }  // layers front-to-back</code></div>
 
       <!-- 22. Grid -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Grid</div>
+        <div class="ctrl-name">Grid 网格布局</div>
         <div class="ctrl-demo">
           <div class="ios-grid-demo">
             <div class="ios-grid-cell" style="font-weight:600">Name</div>
@@ -2906,7 +2906,7 @@ ZStack { }  // layers front-to-back</code></div>
 
       <!-- 23. Spacer -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Spacer</div>
+        <div class="ctrl-name">Spacer 弹性空间</div>
         <div class="ctrl-demo">
           <div class="layout-spacer-demo">
             <span style="font-size:13px;color:var(--label-primary)">Leading</span>
@@ -2925,7 +2925,7 @@ ZStack { }  // layers front-to-back</code></div>
 
       <!-- 24. Divider -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Divider</div>
+        <div class="ctrl-name">Divider 分割线</div>
         <div class="ctrl-demo">
           <div style="width:100%">
             <div style="font-size:13px;color:var(--label-primary);padding:6px 0">Item Above</div>
@@ -2942,7 +2942,7 @@ ZStack { }  // layers front-to-back</code></div>
 
       <!-- 25. Group / GroupBox -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Group / GroupBox</div>
+        <div class="ctrl-name">Group / GroupBox 分组容器</div>
         <div class="ctrl-demo">
           <div class="ios-groupbox">
             <div class="ios-groupbox-label">Settings</div>
@@ -2974,7 +2974,7 @@ ZStack { }  // layers front-to-back</code></div>
 
       <!-- 26. List -->
       <div class="ctrl-card">
-        <div class="ctrl-name">List</div>
+        <div class="ctrl-name">List 列表</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ios-list">
             <div class="ios-list-header">Section Header</div>
@@ -3009,7 +3009,7 @@ ZStack { }  // layers front-to-back</code></div>
 
       <!-- 27. ScrollView -->
       <div class="ctrl-card">
-        <div class="ctrl-name">ScrollView</div>
+        <div class="ctrl-name">ScrollView 滚动视图</div>
         <div class="ctrl-demo" style="padding:0;height:120px;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ios-scrollview" style="height:120px">
             <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 1</div>
@@ -3037,7 +3037,7 @@ ScrollView(.horizontal) { HStack { ... } }</code></div>
 
       <!-- 28. LazyVGrid / LazyHGrid -->
       <div class="ctrl-card">
-        <div class="ctrl-name">LazyVGrid / LazyHGrid</div>
+        <div class="ctrl-name">LazyVGrid / LazyHGrid 懒加载网格</div>
         <div class="ctrl-demo">
           <div style="font-size:11px;color:var(--label-tertiary);margin-bottom:6px;text-align:center">.adaptive(minimum: 48)</div>
           <div class="layout-lazygrid">
@@ -3061,7 +3061,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 29. Table -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Table (iPad / Mac)</div>
+        <div class="ctrl-name">Table 表格 (iPad / Mac)</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <table style="width:100%;border-collapse:collapse;font-size:13px">
             <thead>
@@ -3094,7 +3094,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 30. DisclosureGroup -->
       <div class="ctrl-card">
-        <div class="ctrl-name">DisclosureGroup</div>
+        <div class="ctrl-name">DisclosureGroup 折叠分组</div>
         <div class="ctrl-demo">
           <div class="ios-disclosure" onclick="this.classList.toggle('open')">
             <div class="ios-disclosure-header">
@@ -3112,7 +3112,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 31. OutlineGroup -->
       <div class="ctrl-card">
-        <div class="ctrl-name">OutlineGroup</div>
+        <div class="ctrl-name">OutlineGroup 树状大纲</div>
         <div class="ctrl-demo">
           <div style="width:100%;font-size:14px">
             <div style="padding:4px 0;color:var(--label-primary);cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">▾ Documents</div>
@@ -3143,7 +3143,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 32. NavigationStack -->
       <div class="ctrl-card">
-        <div class="ctrl-name">NavigationStack</div>
+        <div class="ctrl-name">NavigationStack 导航堆栈</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ctrl-phone" id="navStackPhone">
             <div class="ctrl-phone-status">9:41</div>
@@ -3178,7 +3178,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 33. NavigationSplitView -->
       <div class="ctrl-card">
-        <div class="ctrl-name">NavigationSplitView</div>
+        <div class="ctrl-name">NavigationSplitView 分栏导航</div>
         <div class="ctrl-demo" style="padding:0;height:200px;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ios-splitview">
             <div class="ios-split-sidebar">
@@ -3207,7 +3207,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 34. TabView -->
       <div class="ctrl-card">
-        <div class="ctrl-name">TabView</div>
+        <div class="ctrl-name">TabView 标签页</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ctrl-phone" style="height:240px" id="tabViewPhone">
             <div class="ctrl-phone-status">9:41</div>
@@ -3231,7 +3231,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 35. Sheet -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Sheet</div>
+        <div class="ctrl-name">Sheet 底部弹窗</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ctrl-phone" style="height:260px" id="sheetPhone">
             <div class="ctrl-phone-status">9:41</div>
@@ -3249,7 +3249,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 36. Alert -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Alert</div>
+        <div class="ctrl-name">Alert 系统弹窗</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ctrl-phone" style="height:220px" id="alertPhone">
             <div class="ctrl-phone-status">9:41</div>
@@ -3269,7 +3269,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 37. ConfirmationDialog -->
       <div class="ctrl-card">
-        <div class="ctrl-name">ConfirmationDialog</div>
+        <div class="ctrl-name">ConfirmationDialog 确认对话框</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ctrl-phone" style="height:280px" id="actionSheetPhone">
             <div class="ctrl-phone-status">9:41</div>
@@ -3289,7 +3289,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 38. Popover -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Popover</div>
+        <div class="ctrl-name">Popover 气泡弹窗</div>
         <div class="ctrl-demo" style="position:relative;min-height:100px">
           <button class="ios-btn ios-btn-bordered" style="font-size:13px" id="popoverTrigger" onclick="togglePopover()">Show Popover</button>
           <div id="popoverBubble" style="display:none;position:absolute;top:calc(100% - 10px);left:50%;transform:translateX(-50%);background:var(--bg-secondary);border:1px solid var(--separator);border-radius:12px;padding:12px 16px;box-shadow:0 8px 30px rgba(0,0,0,0.3);z-index:10;min-width:160px;text-align:center">
@@ -3316,7 +3316,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 39. ShareLink -->
       <div class="ctrl-card">
-        <div class="ctrl-name">ShareLink</div>
+        <div class="ctrl-name">ShareLink 分享按钮</div>
         <div class="ctrl-demo">
           <button class="ios-btn ios-btn-bordered" style="display:flex;align-items:center;gap:6px;margin:0 auto" onclick="this.textContent='Shared!';setTimeout(()=>this.innerHTML='<span style=font-size:16px>📤</span> Share',1000)">
             <span style="font-size:16px">📤</span> Share
@@ -3330,7 +3330,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 40. PhotosPicker -->
       <div class="ctrl-card">
-        <div class="ctrl-name">PhotosPicker</div>
+        <div class="ctrl-name">PhotosPicker 照片选择器</div>
         <div class="ctrl-demo">
           <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
             <div style="width:56px;height:56px;border-radius:8px;background:var(--fill);display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer" onclick="this.textContent=this.textContent==='+'?'🖼️':'+'">+</div>
@@ -3346,7 +3346,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 41. Map -->
       <div class="ctrl-card">
-        <div class="ctrl-name">Map</div>
+        <div class="ctrl-name">Map 地图</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <div class="ios-map">
             <div class="ios-map-pin">📍</div>
@@ -3363,7 +3363,7 @@ LazyVGrid(columns: cols, spacing: 8) {
 
       <!-- 42. VideoPlayer -->
       <div class="ctrl-card">
-        <div class="ctrl-name">VideoPlayer</div>
+        <div class="ctrl-name">VideoPlayer 视频播放器</div>
         <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
           <div style="width:100%;height:120px;background:#000;display:flex;align-items:center;justify-content:center;position:relative;border-radius:var(--smallRadius)">
             <span style="font-size:40px;opacity:0.8">▶️</span>
@@ -3382,7 +3382,7 @@ VideoPlayer(player:
 
       <!-- 43. ViewThatFits -->
       <div class="ctrl-card">
-        <div class="ctrl-name">ViewThatFits</div>
+        <div class="ctrl-name">ViewThatFits 自适应视图</div>
         <div class="ctrl-demo">
           <div style="text-align:center">
             <div style="font-size:12px;color:var(--label-tertiary);margin-bottom:6px">Picks the first view that fits the available space</div>
@@ -3401,7 +3401,7 @@ VideoPlayer(player:
 
       <!-- 44. ContentUnavailableView -->
       <div class="ctrl-card">
-        <div class="ctrl-name">ContentUnavailableView</div>
+        <div class="ctrl-name">ContentUnavailableView 空状态视图</div>
         <div class="ctrl-demo">
           <div class="ios-empty-state">
             <div class="ios-empty-icon">🔍</div>
@@ -3419,7 +3419,7 @@ VideoPlayer(player:
 
       <!-- 45. LabeledContent -->
       <div class="ctrl-card">
-        <div class="ctrl-name">LabeledContent</div>
+        <div class="ctrl-name">LabeledContent 标签内容对</div>
         <div class="ctrl-demo">
           <div style="width:100%">
             <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--separator)">
