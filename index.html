@@ -722,6 +722,62 @@ body{
 }
 @keyframes gradientFlow{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 
+/* ── Module C: Liquid Glass Design System ── */
+.glass-bg {
+  background: linear-gradient(135deg,
+    rgba(10,132,255,0.08) 0%,
+    rgba(191,90,242,0.06) 25%,
+    rgba(255,55,95,0.05) 50%,
+    rgba(48,209,88,0.06) 75%,
+    rgba(10,132,255,0.08) 100%);
+}
+.glass-material {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+[data-theme="light"] .glass-material {
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+.glass-interactive {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 22px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.glass-interactive:hover {
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.glass-interactive:active {
+  transform: scale(0.96);
+  opacity: 0.9;
+}
+.glass-note {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: var(--spaceXL);
+  font-size: 13px;
+  color: var(--label-secondary);
+  line-height: 1.5;
+}
+[data-theme="light"] .glass-note {
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
 /* ── Module C: SwiftUI Controls ── */
 .ctrl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--cardSpacing)}
 .ctrl-card{
@@ -746,28 +802,38 @@ body{
 
 /* iOS TextField */
 .ios-textfield{
-  width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--separator);
-  background:var(--bg-secondary);color:var(--label-primary);font-size:15px;
-  font-family:var(--font);outline:none;transition:border-color 0.2s;
+  width:100%;padding:10px 14px;border-radius:12px;
+  background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.15);
+  color:var(--label-primary);font-size:15px;
+  font-family:var(--font);outline:none;transition:border-color 0.2s,background 0.2s;
 }
-.ios-textfield:focus{border-color:var(--accent)}
+.ios-textfield:focus{border-color:var(--accent);background:rgba(255,255,255,0.12)}
 .ios-textfield::placeholder{color:var(--label-tertiary)}
+[data-theme="light"] .ios-textfield{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
+[data-theme="light"] .ios-textfield:focus{background:rgba(255,255,255,0.45)}
 
 /* iOS SecureField */
 .ios-securefield{
-  width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--separator);
-  background:var(--bg-secondary);color:var(--label-primary);font-size:15px;
-  font-family:var(--font);outline:none;-webkit-text-security:disc;transition:border-color 0.2s;
+  width:100%;padding:10px 14px;border-radius:12px;
+  background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.15);
+  color:var(--label-primary);font-size:15px;
+  font-family:var(--font);outline:none;-webkit-text-security:disc;transition:border-color 0.2s,background 0.2s;
 }
-.ios-securefield:focus{border-color:var(--accent)}
+.ios-securefield:focus{border-color:var(--accent);background:rgba(255,255,255,0.12)}
+[data-theme="light"] .ios-securefield{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
 
 /* iOS TextEditor */
 .ios-texteditor{
-  width:100%;min-height:80px;padding:10px 14px;border-radius:10px;border:1px solid var(--separator);
-  background:var(--bg-secondary);color:var(--label-primary);font-size:15px;
-  font-family:var(--font);outline:none;resize:vertical;transition:border-color 0.2s;
+  width:100%;min-height:80px;padding:10px 14px;border-radius:12px;
+  background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.15);
+  color:var(--label-primary);font-size:15px;
+  font-family:var(--font);outline:none;resize:vertical;transition:border-color 0.2s,background 0.2s;
 }
-.ios-texteditor:focus{border-color:var(--accent)}
+.ios-texteditor:focus{border-color:var(--accent);background:rgba(255,255,255,0.12)}
+[data-theme="light"] .ios-texteditor{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
 
 /* iOS Toggle */
 .ios-toggle-row{display:flex;align-items:center;justify-content:space-between;width:100%}
@@ -801,17 +867,19 @@ body{
 }
 .ios-stepper-label{font-size:15px;color:var(--label-primary);flex:1}
 .ios-stepper-ctrl{
-  display:flex;border:1px solid var(--separator);border-radius:8px;overflow:hidden;
+  display:flex;border:1px solid rgba(255,255,255,0.15);border-radius:10px;overflow:hidden;
+  background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 }
+[data-theme="light"] .ios-stepper-ctrl{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
 .ios-stepper-btn{
-  width:36px;height:32px;border:none;background:var(--bg-secondary);color:var(--accent);
+  width:36px;height:32px;border:none;background:transparent;color:var(--accent);
   font-size:18px;font-weight:500;cursor:pointer;font-family:var(--font);
   display:flex;align-items:center;justify-content:center;transition:background 0.15s;
 }
 .ios-stepper-btn:hover{background:var(--fill)}
 .ios-stepper-btn:disabled{color:var(--label-quaternary);cursor:default}
-.ios-stepper-btn:disabled:hover{background:var(--bg-secondary)}
-.ios-stepper-divider{width:1px;background:var(--separator)}
+.ios-stepper-btn:disabled:hover{background:transparent}
+.ios-stepper-divider{width:1px;background:rgba(255,255,255,0.12)}
 .ios-stepper-val{font-size:15px;font-weight:600;color:var(--label-primary);min-width:24px;text-align:center}
 
 /* iOS Buttons */
@@ -820,25 +888,28 @@ body{
   font-family:var(--font);cursor:pointer;transition:all 0.15s;border:none;
 }
 .ios-btn:active{opacity:0.7;transform:scale(0.97)}
-.ios-btn-bordered{background:transparent;color:var(--accent);border:1px solid var(--accent)}
-.ios-btn-prominent{background:var(--accent);color:#fff}
+.ios-btn-bordered{background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--accent);border:1px solid rgba(255,255,255,0.2)}
+.ios-btn-prominent{background:rgba(10,132,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;border:1px solid rgba(255,255,255,0.2);box-shadow:0 4px 16px rgba(10,132,255,0.3)}
 .ios-btn-borderless{background:transparent;color:var(--accent);border:none}
 .ios-btn-plain{background:transparent;color:var(--label-primary);border:none}
 .ios-btn-destructive{background:transparent;color:var(--red);border:1px solid var(--red)}
 .ios-btn-row{display:flex;flex-wrap:wrap;gap:var(--spaceSM);justify-content:center}
+[data-theme="light"] .ios-btn-bordered{background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.4)}
+[data-theme="light"] .ios-btn-prominent{background:rgba(0,122,255,0.85);box-shadow:0 4px 16px rgba(0,122,255,0.3)}
 
 /* iOS Menu */
 .ios-menu-trigger{
-  padding:8px 16px;border-radius:8px;background:var(--accent);color:#fff;
-  font-size:14px;font-weight:500;border:none;cursor:pointer;font-family:var(--font);
-  position:relative;
+  padding:8px 16px;border-radius:10px;background:rgba(10,132,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  color:#fff;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.2);cursor:pointer;font-family:var(--font);
+  position:relative;box-shadow:0 4px 16px rgba(10,132,255,0.3);
 }
 .ios-menu-dropdown{
   position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);
-  min-width:180px;background:var(--bg-secondary);border-radius:12px;
-  border:1px solid var(--separator);overflow:hidden;z-index:10;
-  box-shadow:0 8px 30px rgba(0,0,0,0.3);display:none;
+  min-width:180px;background:rgba(255,255,255,0.15);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
+  border-radius:16px;border:1px solid rgba(255,255,255,0.2);overflow:hidden;z-index:10;
+  box-shadow:0 8px 32px rgba(0,0,0,0.2);display:none;
 }
+[data-theme="light"] .ios-menu-dropdown{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
 .ios-menu-dropdown.show{display:block}
 .ios-menu-item{
   padding:10px 16px;font-size:14px;color:var(--label-primary);cursor:pointer;
@@ -861,19 +932,25 @@ body{
 
 /* iOS Segmented */
 .ios-segmented{
-  display:flex;background:var(--fill);border-radius:8px;padding:2px;overflow:hidden;
+  display:flex;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:2px;overflow:hidden;
 }
 .ios-seg-item{
-  flex:1;padding:6px 16px;border-radius:7px;font-size:13px;font-weight:500;
+  flex:1;padding:6px 16px;border-radius:8px;font-size:13px;font-weight:500;
   text-align:center;cursor:pointer;color:var(--label-primary);background:transparent;
   border:none;font-family:var(--font);transition:all 0.2s;
 }
-.ios-seg-item.active{background:var(--bg-secondary);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.ios-seg-item.active{background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+[data-theme="light"] .ios-segmented{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
+[data-theme="light"] .ios-seg-item.active{background:rgba(255,255,255,0.5)}
 
 /* iOS Wheel Picker */
 .ios-wheel{
   height:120px;overflow:hidden;position:relative;
+  background:rgba(255,255,255,0.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.1);border-radius:12px;
 }
+[data-theme="light"] .ios-wheel{background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.35)}
 .ios-wheel-items{
   display:flex;flex-direction:column;align-items:center;transition:transform 0.3s;
 }
@@ -890,18 +967,22 @@ body{
 
 /* iOS Menu Picker */
 .ios-menu-picker{
-  padding:8px 12px;border-radius:8px;background:var(--fill);color:var(--label-primary);
-  font-size:15px;font-family:var(--font);border:none;outline:none;cursor:pointer;
+  padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.15);color:var(--label-primary);
+  font-size:15px;font-family:var(--font);outline:none;cursor:pointer;
   -webkit-appearance:none;appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;
 }
+[data-theme="light"] .ios-menu-picker{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4);background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
 
 /* iOS DatePicker Graphical (mini calendar) */
 .ios-calendar{
-  width:100%;max-width:280px;background:var(--bg-secondary);border-radius:12px;
+  width:100%;max-width:280px;background:rgba(255,255,255,0.1);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.15);border-radius:16px;
   overflow:hidden;font-family:var(--font);
 }
+[data-theme="light"] .ios-calendar{background:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.45)}
 .ios-cal-header{
   display:flex;align-items:center;justify-content:space-between;
   padding:10px 12px;font-size:15px;font-weight:600;color:var(--label-primary);
@@ -928,9 +1009,11 @@ body{
 /* iOS DatePicker Compact */
 .ios-compact-date{
   display:inline-flex;align-items:center;gap:6px;padding:6px 12px;
-  border-radius:8px;background:var(--fill);font-size:14px;color:var(--accent);
+  border-radius:10px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.15);font-size:14px;color:var(--accent);
   font-weight:500;cursor:pointer;
 }
+[data-theme="light"] .ios-compact-date{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
 
 /* iOS ColorPicker */
 .ios-color-well{
@@ -943,15 +1026,17 @@ body{
 
 /* iOS List / Form */
 .ios-list{
-  width:100%;background:var(--bg-secondary);border-radius:12px;overflow:hidden;
+  width:100%;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.12);border-radius:16px;overflow:hidden;
 }
+[data-theme="light"] .ios-list{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
 .ios-list-header{
   padding:8px 16px 4px;font-size:12px;font-weight:400;color:var(--label-secondary);
   text-transform:uppercase;letter-spacing:0.5px;
 }
 .ios-list-row{
-  display:flex;align-items:center;padding:12px 16px;background:var(--card-bg);
-  border-bottom:1px solid var(--separator);gap:var(--spaceMD);
+  display:flex;align-items:center;padding:12px 16px;background:transparent;
+  border-bottom:1px solid rgba(255,255,255,0.08);gap:var(--spaceMD);
 }
 .ios-list-row:last-child{border-bottom:none}
 .ios-list-text{font-size:15px;color:var(--label-primary);flex:1}
@@ -960,9 +1045,11 @@ body{
 
 /* iOS DisclosureGroup */
 .ios-disclosure{
-  background:var(--card-bg);border-radius:10px;overflow:hidden;width:100%;
-  border:1px solid var(--separator);
+  background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-radius:14px;overflow:hidden;width:100%;
+  border:1px solid rgba(255,255,255,0.15);
 }
+[data-theme="light"] .ios-disclosure{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
 .ios-disclosure-header{
   display:flex;align-items:center;justify-content:space-between;
   padding:12px 16px;cursor:pointer;font-size:15px;color:var(--label-primary);
@@ -979,11 +1066,13 @@ body{
 
 /* iOS GroupBox */
 .ios-groupbox{
-  border:1px solid var(--separator);border-radius:10px;overflow:hidden;width:100%;
+  border:1px solid rgba(255,255,255,0.15);border-radius:14px;overflow:hidden;width:100%;
+  background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
 }
+[data-theme="light"] .ios-groupbox{background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.4)}
 .ios-groupbox-label{
   padding:8px 12px;font-size:13px;font-weight:600;color:var(--label-secondary);
-  background:var(--code-bg);border-bottom:1px solid var(--separator);
+  background:rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.1);
 }
 .ios-groupbox-content{padding:12px;font-size:14px;color:var(--label-primary)}
 
@@ -993,13 +1082,24 @@ body{
 }
 .ios-grid-cell{
   padding:10px;text-align:center;font-size:14px;color:var(--label-primary);
-  background:var(--card-bg);
+  background:rgba(255,255,255,0.06);
 }
+[data-theme="light"] .ios-grid-cell{background:rgba(255,255,255,0.3)}
 
 /* Phone frame for navigation demos */
 .ctrl-phone{
   width:200px;height:360px;border-radius:28px;border:2px solid var(--separator);
-  overflow:hidden;position:relative;background:var(--bg-primary);margin:0 auto;
+  overflow:hidden;position:relative;margin:0 auto;
+  background:linear-gradient(180deg,
+    rgba(10,132,255,0.06) 0%,
+    rgba(191,90,242,0.04) 50%,
+    rgba(48,209,88,0.06) 100%);
+}
+[data-theme="light"] .ctrl-phone{
+  background:linear-gradient(180deg,
+    rgba(10,132,255,0.08) 0%,
+    rgba(191,90,242,0.06) 50%,
+    rgba(48,209,88,0.08) 100%);
 }
 .ctrl-phone-status{
   height:28px;display:flex;align-items:center;justify-content:center;
@@ -1007,17 +1107,24 @@ body{
 }
 .ctrl-phone-navbar{
   display:flex;align-items:center;padding:0 12px;height:44px;
-  background:var(--bg-secondary);border-bottom:1px solid var(--separator);
+  background:rgba(255,255,255,0.12);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
+[data-theme="light"] .ctrl-phone-navbar{background:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.3)}
 .ctrl-phone-back{color:var(--accent);font-size:14px;cursor:pointer}
 .ctrl-phone-title{flex:1;text-align:center;font-size:15px;font-weight:600;color:var(--label-primary)}
 .ctrl-phone-content{
   flex:1;overflow-y:auto;padding:8px 0;
 }
 .ctrl-phone-tabbar{
-  display:flex;height:48px;background:var(--bg-secondary);
-  border-top:1px solid var(--separator);
+  position:absolute;bottom:12px;left:40px;right:40px;
+  display:flex;height:44px;
+  background:rgba(255,255,255,0.15);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.2);border-radius:99px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+  align-items:center;justify-content:center;z-index:5;
 }
+[data-theme="light"] .ctrl-phone-tabbar{background:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.5)}
 .ctrl-phone-tab{
   flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:2px;cursor:pointer;color:var(--label-tertiary);font-size:10px;transition:color 0.2s;
@@ -1031,9 +1138,11 @@ body{
   display:flex;align-items:flex-end;
 }
 .ios-sheet{
-  width:100%;background:var(--bg-secondary);border-radius:14px 14px 0 0;
+  width:100%;background:rgba(255,255,255,0.15);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
+  border-radius:22px 22px 0 0;border:1px solid rgba(255,255,255,0.2);border-bottom:none;
   padding:8px 0 0;max-height:65%;
 }
+[data-theme="light"] .ios-sheet{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
 .ios-sheet-handle{
   width:36px;height:5px;border-radius:3px;background:var(--fill);margin:0 auto 10px;
 }
@@ -1042,9 +1151,10 @@ body{
 /* iOS Split View */
 .ios-splitview{display:flex;width:100%;height:100%}
 .ios-split-sidebar{
-  width:35%;background:var(--bg-secondary);border-right:1px solid var(--separator);
-  overflow-y:auto;
+  width:35%;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-right:1px solid rgba(255,255,255,0.1);overflow-y:auto;
 }
+[data-theme="light"] .ios-split-sidebar{background:rgba(255,255,255,0.3);border-right:1px solid rgba(255,255,255,0.35)}
 .ios-split-detail{flex:1;display:flex;align-items:center;justify-content:center;
   font-size:13px;color:var(--label-tertiary);padding:12px}
 
@@ -1059,18 +1169,20 @@ body{
   display:flex;align-items:center;justify-content:center;
 }
 .ios-alert-box{
-  width:80%;max-width:270px;background:var(--bg-secondary);border-radius:14px;
-  overflow:hidden;text-align:center;
+  width:80%;max-width:270px;background:rgba(255,255,255,0.18);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
+  border-radius:22px;border:1px solid rgba(255,255,255,0.2);
+  overflow:hidden;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.2);
 }
+[data-theme="light"] .ios-alert-box{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
 .ios-alert-body{padding:20px 16px 16px}
 .ios-alert-title{font-size:16px;font-weight:600;color:var(--label-primary);margin-bottom:4px}
 .ios-alert-msg{font-size:13px;color:var(--label-secondary)}
-.ios-alert-actions{border-top:1px solid var(--separator);display:flex}
+.ios-alert-actions{border-top:1px solid rgba(255,255,255,0.12);display:flex}
 .ios-alert-btn{
   flex:1;padding:12px;border:none;background:none;font-size:16px;
   font-family:var(--font);cursor:pointer;color:var(--accent);font-weight:500;
 }
-.ios-alert-btn:not(:last-child){border-right:1px solid var(--separator)}
+.ios-alert-btn:not(:last-child){border-right:1px solid rgba(255,255,255,0.12)}
 .ios-alert-btn.bold{font-weight:600}
 
 /* iOS ConfirmationDialog / Action Sheet */
@@ -1078,22 +1190,28 @@ body{
   position:absolute;bottom:0;left:8px;right:8px;z-index:10;
 }
 .ios-actionsheet-group{
-  background:var(--bg-secondary);border-radius:14px;overflow:hidden;margin-bottom:8px;
+  background:rgba(255,255,255,0.18);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
+  border-radius:22px;border:1px solid rgba(255,255,255,0.2);overflow:hidden;margin-bottom:8px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.15);
 }
+[data-theme="light"] .ios-actionsheet-group{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
 .ios-actionsheet-title{
   padding:14px 16px 4px;font-size:12px;color:var(--label-secondary);text-align:center;
 }
 .ios-actionsheet-btn{
   display:block;width:100%;padding:14px;border:none;background:none;font-size:17px;
   color:var(--accent);font-family:var(--font);cursor:pointer;text-align:center;
-  border-top:1px solid var(--separator);
+  border-top:1px solid rgba(255,255,255,0.1);
 }
 .ios-actionsheet-btn.destructive{color:var(--red)}
 .ios-actionsheet-cancel{
-  display:block;width:100%;padding:14px;border:none;border-radius:14px;
-  background:var(--bg-secondary);font-size:17px;font-weight:600;color:var(--accent);
+  display:block;width:100%;padding:14px;border-radius:22px;
+  background:rgba(255,255,255,0.2);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.2);
+  font-size:17px;font-weight:600;color:var(--accent);
   font-family:var(--font);cursor:pointer;text-align:center;margin-bottom:8px;
 }
+[data-theme="light"] .ios-actionsheet-cancel{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
 
 /* iOS ContentUnavailableView */
 .ios-empty-state{
@@ -2399,7 +2517,8 @@ body{
   <!-- ═══════════════════════════════════════════════════════ -->
 
   <!-- ═══════════════ TEXT & LABELS ═══════════════ -->
-  <section class="section" id="sec-text-labels">
+  <div class="glass-note">以下控件均基于 iOS 26 液态玻璃 (Liquid Glass) 设计规范。所有控件自动采用玻璃材质背景、模糊效果和动态光影。</div>
+  <section class="section glass-bg" id="sec-text-labels">
     <h2 class="section-title">文本与标签 Text & Labels</h2>
     <div class="ctrl-grid">
 
@@ -2463,7 +2582,7 @@ attr.link = URL(string: "https://...")</code></div>
   </section>
 
   <!-- ═══════════════ INPUT CONTROLS ═══════════════ -->
-  <section class="section" id="sec-input-controls">
+  <section class="section glass-bg" id="sec-input-controls">
     <h2 class="section-title">输入控件 Input Controls</h2>
     <div class="ctrl-grid">
 
@@ -2611,7 +2730,7 @@ Slider(value: $step, in: 0...10, step: 1) {
   </section>
 
   <!-- ═══════════════ PICKERS & DATE ═══════════════ -->
-  <section class="section" id="sec-pickers">
+  <section class="section glass-bg" id="sec-pickers">
     <h2 class="section-title">选择器 Pickers & Date</h2>
     <div class="ctrl-grid">
 
@@ -2703,7 +2822,7 @@ Slider(value: $step, in: 0...10, step: 1) {
   </section>
 
   <!-- ═══════════════ INDICATORS ═══════════════ -->
-  <section class="section" id="sec-indicators">
+  <section class="section glass-bg" id="sec-indicators">
     <h2 class="section-title">指示器 Indicators</h2>
     <div class="ctrl-grid">
 
@@ -2764,7 +2883,7 @@ ProgressView("Downloading...",
   </section>
 
   <!-- ═══════════════ IMAGES & MEDIA ═══════════════ -->
-  <section class="section" id="sec-images-media">
+  <section class="section glass-bg" id="sec-images-media">
     <h2 class="section-title">图片与媒体 Images & Media</h2>
     <div class="ctrl-grid">
 
@@ -2820,7 +2939,7 @@ ProgressView("Downloading...",
   </section>
 
   <!-- ═══════════════ LAYOUT CONTAINERS ═══════════════ -->
-  <section class="section" id="sec-layout-containers">
+  <section class="section glass-bg" id="sec-layout-containers">
     <h2 class="section-title">布局容器 Layout Containers</h2>
     <div class="ctrl-grid">
 
@@ -2968,7 +3087,7 @@ ZStack { }  // layers front-to-back</code></div>
   </section>
 
   <!-- ═══════════════ LISTS & DATA ═══════════════ -->
-  <section class="section" id="sec-lists-data">
+  <section class="section glass-bg" id="sec-lists-data">
     <h2 class="section-title">列表与数据 Lists & Data</h2>
     <div class="ctrl-grid">
 
@@ -3137,7 +3256,7 @@ LazyVGrid(columns: cols, spacing: 8) {
   </section>
 
   <!-- ═══════════════ NAVIGATION & PRESENTATION ═══════════════ -->
-  <section class="section" id="sec-navigation">
+  <section class="section glass-bg" id="sec-navigation">
     <h2 class="section-title">导航与弹窗 Navigation & Presentation</h2>
     <div class="ctrl-grid">
 
@@ -3292,7 +3411,7 @@ LazyVGrid(columns: cols, spacing: 8) {
         <div class="ctrl-name">Popover 气泡弹窗</div>
         <div class="ctrl-demo" style="position:relative;min-height:100px">
           <button class="ios-btn ios-btn-bordered" style="font-size:13px" id="popoverTrigger" onclick="togglePopover()">Show Popover</button>
-          <div id="popoverBubble" style="display:none;position:absolute;top:calc(100% - 10px);left:50%;transform:translateX(-50%);background:var(--bg-secondary);border:1px solid var(--separator);border-radius:12px;padding:12px 16px;box-shadow:0 8px 30px rgba(0,0,0,0.3);z-index:10;min-width:160px;text-align:center">
+          <div id="popoverBubble" style="display:none;position:absolute;top:calc(100% - 10px);left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.15);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border:1px solid rgba(255,255,255,0.2);border-radius:18px;padding:12px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:10;min-width:160px;text-align:center">
             <div style="font-size:14px;color:var(--label-primary);margin-bottom:4px">Popover Content</div>
             <div style="font-size:12px;color:var(--label-secondary)">This appears as a bubble attached to the trigger.</div>
           </div>
@@ -3310,7 +3429,7 @@ LazyVGrid(columns: cols, spacing: 8) {
   </section>
 
   <!-- ═══════════════ SPECIAL CONTROLS ═══════════════ -->
-  <section class="section" id="sec-special-controls">
+  <section class="section glass-bg" id="sec-special-controls">
     <h2 class="section-title">特殊控件 Special Controls</h2>
     <div class="ctrl-grid">
 
