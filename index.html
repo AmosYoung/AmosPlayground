@@ -722,6 +722,460 @@ body{
 }
 @keyframes gradientFlow{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 
+/* ── Module C: SwiftUI Controls ── */
+.ctrl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--cardSpacing)}
+.ctrl-card{
+  background:var(--card-bg);border-radius:var(--cardRadius);padding:var(--cardPadding);
+  box-shadow:0 var(--cardShadowY) var(--cardShadowRadius) var(--cardShadowColor);
+  transition:background var(--transition);
+}
+.ctrl-card .ctrl-name{font-size:14px;font-weight:600;color:var(--label-primary);margin-bottom:var(--spaceMD)}
+.ctrl-demo{
+  background:var(--code-bg);border-radius:var(--smallRadius);padding:var(--spaceBase);
+  margin-bottom:var(--spaceMD);min-height:48px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:var(--spaceSM);
+}
+.ctrl-code{
+  background:var(--code-bg);border-radius:var(--smallRadius);padding:var(--spaceSM) var(--spaceMD);
+  overflow-x:auto;
+}
+.ctrl-code code{
+  font-family:"SF Mono",Menlo,monospace;font-size:11px;line-height:1.5;
+  color:var(--label-secondary);white-space:pre;
+}
+
+/* iOS TextField */
+.ios-textfield{
+  width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--separator);
+  background:var(--bg-secondary);color:var(--label-primary);font-size:15px;
+  font-family:var(--font);outline:none;transition:border-color 0.2s;
+}
+.ios-textfield:focus{border-color:var(--accent)}
+.ios-textfield::placeholder{color:var(--label-tertiary)}
+
+/* iOS SecureField */
+.ios-securefield{
+  width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--separator);
+  background:var(--bg-secondary);color:var(--label-primary);font-size:15px;
+  font-family:var(--font);outline:none;-webkit-text-security:disc;transition:border-color 0.2s;
+}
+.ios-securefield:focus{border-color:var(--accent)}
+
+/* iOS TextEditor */
+.ios-texteditor{
+  width:100%;min-height:80px;padding:10px 14px;border-radius:10px;border:1px solid var(--separator);
+  background:var(--bg-secondary);color:var(--label-primary);font-size:15px;
+  font-family:var(--font);outline:none;resize:vertical;transition:border-color 0.2s;
+}
+.ios-texteditor:focus{border-color:var(--accent)}
+
+/* iOS Toggle */
+.ios-toggle-row{display:flex;align-items:center;justify-content:space-between;width:100%}
+.ios-toggle-label{font-size:15px;color:var(--label-primary)}
+.ios-toggle{
+  position:relative;width:51px;height:31px;border-radius:16px;
+  background:#787880;cursor:pointer;transition:background 0.3s;flex-shrink:0;
+}
+.ios-toggle.on{background:var(--green)}
+.ios-toggle .knob{
+  position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;
+  background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.2);transition:transform 0.3s;
+}
+.ios-toggle.on .knob{transform:translateX(20px)}
+
+/* iOS Slider */
+.ios-slider-row{display:flex;align-items:center;gap:var(--spaceSM);width:100%}
+.ios-slider{
+  -webkit-appearance:none;appearance:none;flex:1;height:4px;border-radius:2px;
+  background:var(--fill);outline:none;
+}
+.ios-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);cursor:pointer;
+}
+.ios-slider-val{font-size:14px;color:var(--label-secondary);min-width:28px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* iOS Stepper */
+.ios-stepper{
+  display:flex;align-items:center;gap:var(--spaceMD);
+}
+.ios-stepper-label{font-size:15px;color:var(--label-primary);flex:1}
+.ios-stepper-ctrl{
+  display:flex;border:1px solid var(--separator);border-radius:8px;overflow:hidden;
+}
+.ios-stepper-btn{
+  width:36px;height:32px;border:none;background:var(--bg-secondary);color:var(--accent);
+  font-size:18px;font-weight:500;cursor:pointer;font-family:var(--font);
+  display:flex;align-items:center;justify-content:center;transition:background 0.15s;
+}
+.ios-stepper-btn:hover{background:var(--fill)}
+.ios-stepper-btn:disabled{color:var(--label-quaternary);cursor:default}
+.ios-stepper-btn:disabled:hover{background:var(--bg-secondary)}
+.ios-stepper-divider{width:1px;background:var(--separator)}
+.ios-stepper-val{font-size:15px;font-weight:600;color:var(--label-primary);min-width:24px;text-align:center}
+
+/* iOS Buttons */
+.ios-btn{
+  padding:8px 20px;border-radius:8px;font-size:15px;font-weight:500;
+  font-family:var(--font);cursor:pointer;transition:all 0.15s;border:none;
+}
+.ios-btn:active{opacity:0.7;transform:scale(0.97)}
+.ios-btn-bordered{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.ios-btn-prominent{background:var(--accent);color:#fff}
+.ios-btn-borderless{background:transparent;color:var(--accent);border:none}
+.ios-btn-plain{background:transparent;color:var(--label-primary);border:none}
+.ios-btn-destructive{background:transparent;color:var(--red);border:1px solid var(--red)}
+.ios-btn-row{display:flex;flex-wrap:wrap;gap:var(--spaceSM);justify-content:center}
+
+/* iOS Menu */
+.ios-menu-trigger{
+  padding:8px 16px;border-radius:8px;background:var(--accent);color:#fff;
+  font-size:14px;font-weight:500;border:none;cursor:pointer;font-family:var(--font);
+  position:relative;
+}
+.ios-menu-dropdown{
+  position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);
+  min-width:180px;background:var(--bg-secondary);border-radius:12px;
+  border:1px solid var(--separator);overflow:hidden;z-index:10;
+  box-shadow:0 8px 30px rgba(0,0,0,0.3);display:none;
+}
+.ios-menu-dropdown.show{display:block}
+.ios-menu-item{
+  padding:10px 16px;font-size:14px;color:var(--label-primary);cursor:pointer;
+  font-family:var(--font);border:none;background:none;width:100%;text-align:left;
+  transition:background 0.15s;
+}
+.ios-menu-item:hover{background:var(--fill)}
+.ios-menu-item.destructive{color:var(--red)}
+.ios-menu-divider{height:1px;background:var(--separator)}
+
+/* iOS Link */
+.ios-link{color:var(--accent);text-decoration:none;font-size:15px;cursor:pointer}
+.ios-link:hover{text-decoration:underline}
+
+/* iOS EditButton */
+.ios-edit-btn{
+  padding:6px 14px;border-radius:8px;border:none;background:transparent;
+  color:var(--accent);font-size:15px;font-weight:500;cursor:pointer;font-family:var(--font);
+}
+
+/* iOS Segmented */
+.ios-segmented{
+  display:flex;background:var(--fill);border-radius:8px;padding:2px;overflow:hidden;
+}
+.ios-seg-item{
+  flex:1;padding:6px 16px;border-radius:7px;font-size:13px;font-weight:500;
+  text-align:center;cursor:pointer;color:var(--label-primary);background:transparent;
+  border:none;font-family:var(--font);transition:all 0.2s;
+}
+.ios-seg-item.active{background:var(--bg-secondary);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+
+/* iOS Wheel Picker */
+.ios-wheel{
+  height:120px;overflow:hidden;position:relative;
+}
+.ios-wheel-items{
+  display:flex;flex-direction:column;align-items:center;transition:transform 0.3s;
+}
+.ios-wheel-item{
+  padding:8px 20px;font-size:20px;color:var(--label-tertiary);
+  transition:all 0.2s;white-space:nowrap;
+}
+.ios-wheel-item.active{color:var(--label-primary);font-weight:500;transform:scale(1.05)}
+.ios-wheel-highlight{
+  position:absolute;top:50%;left:0;right:0;height:36px;transform:translateY(-50%);
+  border-top:1px solid var(--separator);border-bottom:1px solid var(--separator);
+  pointer-events:none;
+}
+
+/* iOS Menu Picker */
+.ios-menu-picker{
+  padding:8px 12px;border-radius:8px;background:var(--fill);color:var(--label-primary);
+  font-size:15px;font-family:var(--font);border:none;outline:none;cursor:pointer;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;
+}
+
+/* iOS DatePicker Graphical (mini calendar) */
+.ios-calendar{
+  width:100%;max-width:280px;background:var(--bg-secondary);border-radius:12px;
+  overflow:hidden;font-family:var(--font);
+}
+.ios-cal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 12px;font-size:15px;font-weight:600;color:var(--label-primary);
+}
+.ios-cal-nav{
+  width:28px;height:28px;border-radius:50%;border:none;background:transparent;
+  color:var(--accent);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.ios-cal-nav:hover{background:var(--fill)}
+.ios-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:4px 8px 10px}
+.ios-cal-day{
+  font-size:11px;text-align:center;color:var(--label-tertiary);padding:4px 0;font-weight:500;
+}
+.ios-cal-cell{
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:var(--label-primary);border-radius:50%;cursor:pointer;
+  transition:all 0.15s;
+}
+.ios-cal-cell:hover{background:var(--fill)}
+.ios-cal-cell.today{background:var(--accent);color:#fff;font-weight:600}
+.ios-cal-cell.selected{background:var(--accent);color:#fff}
+.ios-cal-cell.other-month{color:var(--label-quaternary)}
+
+/* iOS DatePicker Compact */
+.ios-compact-date{
+  display:inline-flex;align-items:center;gap:6px;padding:6px 12px;
+  border-radius:8px;background:var(--fill);font-size:14px;color:var(--accent);
+  font-weight:500;cursor:pointer;
+}
+
+/* iOS ColorPicker */
+.ios-color-well{
+  width:36px;height:36px;border-radius:50%;border:3px solid var(--separator);
+  cursor:pointer;transition:transform 0.15s;
+}
+.ios-color-well:hover{transform:scale(1.1)}
+.ios-color-row{display:flex;align-items:center;gap:var(--spaceMD);width:100%}
+.ios-color-label{font-size:15px;color:var(--label-primary);flex:1}
+
+/* iOS List / Form */
+.ios-list{
+  width:100%;background:var(--bg-secondary);border-radius:12px;overflow:hidden;
+}
+.ios-list-header{
+  padding:8px 16px 4px;font-size:12px;font-weight:400;color:var(--label-secondary);
+  text-transform:uppercase;letter-spacing:0.5px;
+}
+.ios-list-row{
+  display:flex;align-items:center;padding:12px 16px;background:var(--card-bg);
+  border-bottom:1px solid var(--separator);gap:var(--spaceMD);
+}
+.ios-list-row:last-child{border-bottom:none}
+.ios-list-text{font-size:15px;color:var(--label-primary);flex:1}
+.ios-list-detail{font-size:15px;color:var(--label-tertiary)}
+.ios-list-chevron{color:var(--label-quaternary);font-size:13px}
+
+/* iOS DisclosureGroup */
+.ios-disclosure{
+  background:var(--card-bg);border-radius:10px;overflow:hidden;width:100%;
+  border:1px solid var(--separator);
+}
+.ios-disclosure-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;cursor:pointer;font-size:15px;color:var(--label-primary);
+}
+.ios-disclosure-chevron{
+  font-size:12px;color:var(--label-tertiary);transition:transform 0.2s;
+}
+.ios-disclosure.open .ios-disclosure-chevron{transform:rotate(90deg)}
+.ios-disclosure-content{
+  max-height:0;overflow:hidden;transition:max-height 0.3s;
+  padding:0 16px;font-size:14px;color:var(--label-secondary);
+}
+.ios-disclosure.open .ios-disclosure-content{max-height:100px;padding:0 16px 12px}
+
+/* iOS GroupBox */
+.ios-groupbox{
+  border:1px solid var(--separator);border-radius:10px;overflow:hidden;width:100%;
+}
+.ios-groupbox-label{
+  padding:8px 12px;font-size:13px;font-weight:600;color:var(--label-secondary);
+  background:var(--code-bg);border-bottom:1px solid var(--separator);
+}
+.ios-groupbox-content{padding:12px;font-size:14px;color:var(--label-primary)}
+
+/* iOS Grid */
+.ios-grid-demo{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;width:100%;
+}
+.ios-grid-cell{
+  padding:10px;text-align:center;font-size:14px;color:var(--label-primary);
+  background:var(--card-bg);
+}
+
+/* Phone frame for navigation demos */
+.ctrl-phone{
+  width:200px;height:360px;border-radius:28px;border:2px solid var(--separator);
+  overflow:hidden;position:relative;background:var(--bg-primary);margin:0 auto;
+}
+.ctrl-phone-status{
+  height:28px;display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--label-tertiary);
+}
+.ctrl-phone-navbar{
+  display:flex;align-items:center;padding:0 12px;height:44px;
+  background:var(--bg-secondary);border-bottom:1px solid var(--separator);
+}
+.ctrl-phone-back{color:var(--accent);font-size:14px;cursor:pointer}
+.ctrl-phone-title{flex:1;text-align:center;font-size:15px;font-weight:600;color:var(--label-primary)}
+.ctrl-phone-content{
+  flex:1;overflow-y:auto;padding:8px 0;
+}
+.ctrl-phone-tabbar{
+  display:flex;height:48px;background:var(--bg-secondary);
+  border-top:1px solid var(--separator);
+}
+.ctrl-phone-tab{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;cursor:pointer;color:var(--label-tertiary);font-size:10px;transition:color 0.2s;
+}
+.ctrl-phone-tab.active{color:var(--accent)}
+.ctrl-phone-tab-icon{font-size:18px}
+
+/* iOS Sheet */
+.ios-sheet-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,0.3);z-index:5;
+  display:flex;align-items:flex-end;
+}
+.ios-sheet{
+  width:100%;background:var(--bg-secondary);border-radius:14px 14px 0 0;
+  padding:8px 0 0;max-height:65%;
+}
+.ios-sheet-handle{
+  width:36px;height:5px;border-radius:3px;background:var(--fill);margin:0 auto 10px;
+}
+.ios-sheet-content{padding:16px;font-size:14px;color:var(--label-primary)}
+
+/* iOS Split View */
+.ios-splitview{display:flex;width:100%;height:100%}
+.ios-split-sidebar{
+  width:35%;background:var(--bg-secondary);border-right:1px solid var(--separator);
+  overflow-y:auto;
+}
+.ios-split-detail{flex:1;display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:var(--label-tertiary);padding:12px}
+
+/* iOS ScrollView */
+.ios-scrollview{height:100%;overflow-y:auto;padding:8px 12px}
+.ios-scrollview::-webkit-scrollbar{width:3px}
+.ios-scrollview::-webkit-scrollbar-thumb{background:var(--fill);border-radius:2px}
+
+/* iOS Alert */
+.ios-alert-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:10;
+  display:flex;align-items:center;justify-content:center;
+}
+.ios-alert-box{
+  width:80%;max-width:270px;background:var(--bg-secondary);border-radius:14px;
+  overflow:hidden;text-align:center;
+}
+.ios-alert-body{padding:20px 16px 16px}
+.ios-alert-title{font-size:16px;font-weight:600;color:var(--label-primary);margin-bottom:4px}
+.ios-alert-msg{font-size:13px;color:var(--label-secondary)}
+.ios-alert-actions{border-top:1px solid var(--separator);display:flex}
+.ios-alert-btn{
+  flex:1;padding:12px;border:none;background:none;font-size:16px;
+  font-family:var(--font);cursor:pointer;color:var(--accent);font-weight:500;
+}
+.ios-alert-btn:not(:last-child){border-right:1px solid var(--separator)}
+.ios-alert-btn.bold{font-weight:600}
+
+/* iOS ConfirmationDialog / Action Sheet */
+.ios-actionsheet{
+  position:absolute;bottom:0;left:8px;right:8px;z-index:10;
+}
+.ios-actionsheet-group{
+  background:var(--bg-secondary);border-radius:14px;overflow:hidden;margin-bottom:8px;
+}
+.ios-actionsheet-title{
+  padding:14px 16px 4px;font-size:12px;color:var(--label-secondary);text-align:center;
+}
+.ios-actionsheet-btn{
+  display:block;width:100%;padding:14px;border:none;background:none;font-size:17px;
+  color:var(--accent);font-family:var(--font);cursor:pointer;text-align:center;
+  border-top:1px solid var(--separator);
+}
+.ios-actionsheet-btn.destructive{color:var(--red)}
+.ios-actionsheet-cancel{
+  display:block;width:100%;padding:14px;border:none;border-radius:14px;
+  background:var(--bg-secondary);font-size:17px;font-weight:600;color:var(--accent);
+  font-family:var(--font);cursor:pointer;text-align:center;margin-bottom:8px;
+}
+
+/* iOS ContentUnavailableView */
+.ios-empty-state{
+  display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px;
+}
+.ios-empty-icon{font-size:40px;color:var(--label-tertiary)}
+.ios-empty-title{font-size:17px;font-weight:600;color:var(--label-primary)}
+.ios-empty-msg{font-size:14px;color:var(--label-secondary);text-align:center}
+
+/* iOS Image / SF Symbol */
+.ios-symbol{font-size:40px;line-height:1}
+
+/* iOS AsyncImage */
+.ios-async-img{
+  width:80px;height:80px;border-radius:10px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;background:var(--fill);
+}
+
+/* iOS Map */
+.ios-map{
+  width:100%;height:120px;border-radius:10px;
+  background:linear-gradient(135deg,#c8e6c9,#a5d6a7,#81c784,#aed581);
+  position:relative;overflow:hidden;
+}
+.ios-map::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 30px,rgba(255,255,255,0.15) 30px,rgba(255,255,255,0.15) 31px),
+             repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(255,255,255,0.15) 30px,rgba(255,255,255,0.15) 31px);
+}
+.ios-map-pin{
+  position:absolute;top:40%;left:50%;transform:translate(-50%,-100%);
+  font-size:24px;z-index:1;
+}
+
+/* iOS Chart */
+.ios-chart{display:flex;align-items:flex-end;gap:8px;height:80px;padding:0 4px}
+.ios-chart-bar{
+  flex:1;border-radius:4px 4px 0 0;background:var(--accent);
+  transition:height 0.3s;min-width:20px;
+}
+.ios-chart-label{font-size:9px;text-align:center;color:var(--label-tertiary);margin-top:4px}
+
+/* Layout demos */
+.layout-hstack{display:flex;gap:8px;justify-content:center}
+.layout-vstack{display:flex;flex-direction:column;gap:8px;align-items:center}
+.layout-zstack{position:relative;width:100px;height:80px;margin:0 auto}
+.layout-box{border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:600;color:#fff}
+.layout-spacer-demo{display:flex;align-items:center;width:100%;padding:8px;
+  background:var(--card-bg);border-radius:8px}
+.layout-divider{width:100%;height:1px;background:var(--separator)}
+.layout-lazygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:6px}
+.layout-lazygrid-item{
+  aspect-ratio:1;border-radius:8px;background:var(--accent);opacity:0.7;
+  display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:600;
+}
+
+/* Indicators */
+.ios-spinner{
+  width:28px;height:28px;border:3px solid var(--fill);border-top-color:var(--accent);
+  border-radius:50%;animation:spinAnim 0.8s linear infinite;
+}
+.ios-progress-track{
+  width:100%;height:6px;background:var(--fill);border-radius:3px;overflow:hidden;
+}
+.ios-progress-fill{height:100%;background:var(--accent);border-radius:3px;transition:width 0.3s}
+.ios-gauge{
+  width:80px;height:80px;border-radius:50%;position:relative;
+  background:conic-gradient(var(--accent) 0deg,var(--accent) calc(var(--gauge-val,0.7) * 270deg),var(--fill) calc(var(--gauge-val,0.7) * 270deg),var(--fill) 270deg,transparent 270deg);
+  transform:rotate(135deg);
+}
+.ios-gauge-inner{
+  position:absolute;inset:10px;border-radius:50%;background:var(--code-bg);
+  display:flex;align-items:center;justify-content:center;
+  transform:rotate(-135deg);
+}
+.ios-gauge-text{font-size:14px;font-weight:700;color:var(--label-primary)}
+.ios-gauge-label{font-size:11px;color:var(--label-secondary);text-align:center;margin-top:4px}
+
+/* Multi-date calendar */
+.ios-cal-cell.multi-selected{background:rgba(10,132,255,0.2);color:var(--accent);font-weight:600}
+
 /* ── Responsive ── */
 @media(max-width:768px){
   .sidebar{transform:translateX(-100%)}
@@ -773,6 +1227,22 @@ body{
       <li><a href="#sec-gesture">手势联动</a></li>
       <li><a href="#sec-advanced-api">高级 API</a></li>
       <li><a href="#sec-patterns">实用动画模式</a></li>
+    </ul>
+  </div>
+
+  <!-- Module C -->
+  <div class="nav-group collapsed" data-group="c">
+    <button class="nav-group-btn" onclick="toggleGroup(this)">Module C: SwiftUI 原生控件 <span class="chevron">▼</span></button>
+    <ul class="nav-links">
+      <li><a href="#sec-text-labels">文本与标签 Text & Labels</a></li>
+      <li><a href="#sec-input-controls">输入控件 Input Controls</a></li>
+      <li><a href="#sec-pickers">选择器 Pickers & Date</a></li>
+      <li><a href="#sec-indicators">指示器 Indicators</a></li>
+      <li><a href="#sec-images-media">图片与媒体 Images & Media</a></li>
+      <li><a href="#sec-layout-containers">布局容器 Layout Containers</a></li>
+      <li><a href="#sec-lists-data">列表与数据 Lists & Data</a></li>
+      <li><a href="#sec-navigation">导航与弹窗 Navigation & Presentation</a></li>
+      <li><a href="#sec-special-controls">特殊控件 Special Controls</a></li>
     </ul>
   </div>
 </nav>
@@ -1924,6 +2394,1057 @@ body{
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ═══════════════ MODULE C: SwiftUI 原生控件百科 ═══════════════ -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <!-- ═══════════════ TEXT & LABELS ═══════════════ -->
+  <section class="section" id="sec-text-labels">
+    <h2 class="section-title">文本与标签 Text & Labels</h2>
+    <div class="ctrl-grid">
+
+      <!-- 1. Text -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Text</div>
+        <div class="ctrl-demo">
+          <span style="font-size:28px;font-weight:700;color:var(--label-primary)">Large Title</span>
+          <span style="font-size:15px;font-weight:600;color:var(--label-primary)">Bold Text</span>
+          <span style="font-size:15px;font-style:italic;color:var(--label-primary)">Italic Text</span>
+          <span style="font-size:15px;text-decoration:line-through;color:var(--label-secondary)">Strikethrough</span>
+          <span style="font-size:15px;text-decoration:underline;color:var(--label-secondary)">Underlined</span>
+          <span style="font-size:15px;color:var(--accent)">Colored Text</span>
+        </div>
+        <div class="ctrl-code"><code>Text("Hello")
+  .font(.largeTitle)
+  .bold()
+  .italic()
+  .strikethrough()
+  .underline()
+  .foregroundStyle(.blue)</code></div>
+      </div>
+
+      <!-- 2. Label -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Label</div>
+        <div class="ctrl-demo">
+          <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--label-primary)">
+            <span style="font-size:18px">⭐</span><span>Favorites</span>
+          </div>
+          <div style="display:flex;gap:16px;margin-top:4px">
+            <span style="font-size:14px;color:var(--label-secondary)">titleAndIcon</span>
+          </div>
+          <div style="display:flex;gap:16px;margin-top:6px">
+            <span style="font-size:14px;color:var(--accent)">Favorites</span>
+            <span style="font-size:18px">⭐</span>
+          </div>
+          <div style="font-size:11px;color:var(--label-tertiary);margin-top:2px">titleOnly &nbsp;|&nbsp; iconOnly</div>
+        </div>
+        <div class="ctrl-code"><code>Label("Favorites", systemImage: "star.fill")
+  .labelStyle(.titleAndIcon)
+  .labelStyle(.titleOnly)
+  .labelStyle(.iconOnly)</code></div>
+      </div>
+
+      <!-- 3. AttributedString -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">AttributedString</div>
+        <div class="ctrl-demo">
+          <p style="font-size:15px;color:var(--label-primary);text-align:center;line-height:1.6">
+            This is <strong>bold</strong>, this is <span style="color:var(--red)">red</span>, and this is a <a href="#" style="color:var(--accent);text-decoration:underline" onclick="return false">link</a>.
+          </p>
+        </div>
+        <div class="ctrl-code"><code>var attr = AttributedString("bold")
+attr.font = .body.bold()
+attr.foregroundColor = .red
+attr.link = URL(string: "https://...")</code></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ INPUT CONTROLS ═══════════════ -->
+  <section class="section" id="sec-input-controls">
+    <h2 class="section-title">输入控件 Input Controls</h2>
+    <div class="ctrl-grid">
+
+      <!-- 4. Button -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Button</div>
+        <div class="ctrl-demo">
+          <div class="ios-btn-row">
+            <button class="ios-btn ios-btn-prominent">Prominent</button>
+            <button class="ios-btn ios-btn-bordered">Bordered</button>
+            <button class="ios-btn ios-btn-borderless">Borderless</button>
+            <button class="ios-btn ios-btn-plain">Plain</button>
+            <button class="ios-btn ios-btn-destructive">Delete</button>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Button("Action") { }
+  .buttonStyle(.borderedProminent)
+  .buttonStyle(.bordered)
+  .buttonStyle(.borderless)
+  .buttonStyle(.plain)</code></div>
+      </div>
+
+      <!-- 5. TextField -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">TextField</div>
+        <div class="ctrl-demo">
+          <input class="ios-textfield" type="text" placeholder="Enter your name...">
+          <div style="display:flex;align-items:center;gap:8px;width:100%;margin-top:6px">
+            <span style="font-size:13px;color:var(--label-secondary);min-width:50px">Email</span>
+            <input class="ios-textfield" type="email" placeholder="user@example.com">
+          </div>
+        </div>
+        <div class="ctrl-code"><code>TextField("Name", text: $name)
+  .textFieldStyle(.roundedBorder)
+TextField("Email", text: $email,
+  prompt: Text("user@example.com"))</code></div>
+      </div>
+
+      <!-- 6. SecureField -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">SecureField</div>
+        <div class="ctrl-demo">
+          <input class="ios-securefield" type="password" value="password123" readonly>
+        </div>
+        <div class="ctrl-code"><code>SecureField("Password", text: $password)
+  .textFieldStyle(.roundedBorder)</code></div>
+      </div>
+
+      <!-- 7. TextEditor -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">TextEditor</div>
+        <div class="ctrl-demo">
+          <textarea class="ios-texteditor" placeholder="Write something...">SwiftUI TextEditor supports multi-line text editing with full keyboard support.</textarea>
+        </div>
+        <div class="ctrl-code"><code>TextEditor(text: $notes)
+  .frame(minHeight: 100)</code></div>
+      </div>
+
+      <!-- 8. Toggle -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Toggle</div>
+        <div class="ctrl-demo">
+          <div class="ios-toggle-row">
+            <span class="ios-toggle-label">Airplane Mode</span>
+            <div class="ios-toggle on" onclick="this.classList.toggle('on')"><div class="knob"></div></div>
+          </div>
+          <div class="ios-toggle-row" style="margin-top:8px">
+            <span class="ios-toggle-label">Wi-Fi</span>
+            <div class="ios-toggle" onclick="this.classList.toggle('on')" style="--toggle-tint:var(--accent)"><div class="knob"></div></div>
+          </div>
+          <div style="margin-top:8px">
+            <button class="ios-btn ios-btn-bordered" style="font-size:13px;padding:6px 14px;opacity:1" id="toggleBtnDemo" onclick="this.classList.toggle('ios-btn-prominent');this.classList.toggle('ios-btn-bordered');this.textContent=this.classList.contains('ios-btn-prominent')?'ON':'OFF'">OFF</button>
+            <span style="font-size:11px;color:var(--label-tertiary);margin-left:6px">.toggleStyle(.button)</span>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Toggle("Airplane Mode", isOn: $isOn)
+Toggle("Wi-Fi", isOn: $wifi)
+  .toggleStyle(.switch)
+  .tint(.blue)</code></div>
+      </div>
+
+      <!-- 9. Slider -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Slider</div>
+        <div class="ctrl-demo">
+          <div class="ios-slider-row">
+            <span style="font-size:13px;color:var(--label-tertiary)">🔈</span>
+            <input type="range" class="ios-slider" min="0" max="100" value="65" oninput="this.nextElementSibling.textContent=this.value">
+            <span class="ios-slider-val">65</span>
+          </div>
+          <div class="ios-slider-row" style="margin-top:8px">
+            <span style="font-size:11px;color:var(--label-tertiary)">0</span>
+            <input type="range" class="ios-slider" min="0" max="10" step="1" value="5" oninput="this.nextElementSibling.textContent=this.value">
+            <span class="ios-slider-val">5</span>
+            <span style="font-size:11px;color:var(--label-tertiary)">10</span>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Slider(value: $volume, in: 0...100)
+Slider(value: $step, in: 0...10, step: 1) {
+  Text("Value")
+} minimumValueLabel: { Text("0") }
+  maximumValueLabel: { Text("10") }</code></div>
+      </div>
+
+      <!-- 10. Stepper -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Stepper</div>
+        <div class="ctrl-demo">
+          <div class="ios-stepper">
+            <span class="ios-stepper-label">Quantity: <span class="ios-stepper-val" id="stepVal">3</span></span>
+            <div class="ios-stepper-ctrl">
+              <button class="ios-stepper-btn" onclick="stepperChange(-1)">−</button>
+              <div class="ios-stepper-divider"></div>
+              <button class="ios-stepper-btn" onclick="stepperChange(1)">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Stepper("Quantity: \(qty)",
+  value: $qty, in: 0...10)</code></div>
+      </div>
+
+      <!-- 11. Menu -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Menu</div>
+        <div class="ctrl-demo" style="position:relative">
+          <button class="ios-menu-trigger" onclick="toggleCtrlMenu(this)">
+            Actions ▾
+            <div class="ios-menu-dropdown">
+              <button class="ios-menu-item" onclick="event.stopPropagation()">Duplicate</button>
+              <button class="ios-menu-item" onclick="event.stopPropagation()">Rename</button>
+              <div class="ios-menu-divider"></div>
+              <button class="ios-menu-item destructive" onclick="event.stopPropagation()">Delete</button>
+            </div>
+          </button>
+        </div>
+        <div class="ctrl-code"><code>Menu("Actions") {
+  Button("Duplicate") { }
+  Button("Rename") { }
+  Divider()
+  Button("Delete", role: .destructive) { }
+}</code></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ PICKERS & DATE ═══════════════ -->
+  <section class="section" id="sec-pickers">
+    <h2 class="section-title">选择器 Pickers & Date</h2>
+    <div class="ctrl-grid">
+
+      <!-- 12. Picker -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Picker</div>
+        <div class="ctrl-demo">
+          <div style="margin-bottom:8px">
+            <span style="font-size:12px;color:var(--label-tertiary)">Menu Style</span>
+            <select class="ios-menu-picker" style="margin-left:8px">
+              <option>Red</option><option selected>Green</option><option>Blue</option>
+            </select>
+          </div>
+          <div style="margin-bottom:8px">
+            <span style="font-size:12px;color:var(--label-tertiary)">Segmented</span>
+            <div class="ios-segmented" style="max-width:220px;margin-top:4px">
+              <button class="ios-seg-item active" onclick="segSelect(this)">Daily</button>
+              <button class="ios-seg-item" onclick="segSelect(this)">Weekly</button>
+              <button class="ios-seg-item" onclick="segSelect(this)">Monthly</button>
+            </div>
+          </div>
+          <div>
+            <span style="font-size:12px;color:var(--label-tertiary)">Wheel</span>
+            <div class="ios-wheel" style="height:100px;margin-top:4px">
+              <div class="ios-wheel-highlight"></div>
+              <div class="ios-wheel-items" id="pickerWheel">
+                <div class="ios-wheel-item">Option 1</div>
+                <div class="ios-wheel-item">Option 2</div>
+                <div class="ios-wheel-item active">Option 3</div>
+                <div class="ios-wheel-item">Option 4</div>
+                <div class="ios-wheel-item">Option 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Picker("Color", selection: $color) {
+  ForEach(colors) { Text($0) }
+}
+.pickerStyle(.menu)
+.pickerStyle(.segmented)
+.pickerStyle(.wheel)</code></div>
+      </div>
+
+      <!-- 13. DatePicker -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">DatePicker</div>
+        <div class="ctrl-demo">
+          <div style="font-size:12px;color:var(--label-tertiary);margin-bottom:6px">Graphical (Calendar)</div>
+          <div class="ios-calendar" id="ctrlCalendar"></div>
+          <div style="margin-top:10px;font-size:12px;color:var(--label-tertiary)">Compact</div>
+          <div class="ios-compact-date" style="margin-top:4px">
+            <span>📅</span><span id="compactDateLabel">Mar 18, 2026</span>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>DatePicker("Date", selection: $date)
+  .datePickerStyle(.graphical)
+  .datePickerStyle(.compact)
+  .datePickerStyle(.wheel)</code></div>
+      </div>
+
+      <!-- 14. MultiDatePicker -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">MultiDatePicker</div>
+        <div class="ctrl-demo">
+          <div class="ios-calendar" id="multiDateCal"></div>
+          <div style="font-size:11px;color:var(--label-tertiary);margin-top:6px;text-align:center" id="multiDateCount">0 dates selected</div>
+        </div>
+        <div class="ctrl-code"><code>MultiDatePicker("Dates",
+  selection: $dates)
+// Allows selecting multiple dates
+// on the calendar</code></div>
+      </div>
+
+      <!-- 15. ColorPicker -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">ColorPicker</div>
+        <div class="ctrl-demo">
+          <div class="ios-color-row">
+            <span class="ios-color-label">Accent Color</span>
+            <input type="color" value="#0A84FF" class="ios-color-well" style="border:none;padding:0;cursor:pointer">
+          </div>
+        </div>
+        <div class="ctrl-code"><code>ColorPicker("Accent Color",
+  selection: $color)
+  .supportsOpacity(false)</code></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ INDICATORS ═══════════════ -->
+  <section class="section" id="sec-indicators">
+    <h2 class="section-title">指示器 Indicators</h2>
+    <div class="ctrl-grid">
+
+      <!-- 16. ProgressView -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">ProgressView</div>
+        <div class="ctrl-demo">
+          <div style="display:flex;align-items:center;gap:16px">
+            <div>
+              <div style="font-size:11px;color:var(--label-tertiary);margin-bottom:4px">Circular</div>
+              <div class="ios-spinner"></div>
+            </div>
+            <div style="flex:1">
+              <div style="font-size:11px;color:var(--label-tertiary);margin-bottom:4px">Linear</div>
+              <div class="ios-progress-track"><div class="ios-progress-fill" style="width:60%"></div></div>
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--label-tertiary);margin-bottom:4px">
+              <span>Downloading...</span><span id="progLabel">60%</span>
+            </div>
+            <div class="ios-progress-track"><div class="ios-progress-fill" id="progFill" style="width:60%"></div></div>
+            <input type="range" class="ios-slider" min="0" max="100" value="60" style="margin-top:6px" oninput="document.getElementById('progFill').style.width=this.value+'%';document.getElementById('progLabel').textContent=this.value+'%'">
+          </div>
+        </div>
+        <div class="ctrl-code"><code>ProgressView()              // circular
+ProgressView(value: 0.6)    // linear
+ProgressView("Downloading...",
+  value: 0.6, total: 1.0)</code></div>
+      </div>
+
+      <!-- 17. Gauge -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Gauge</div>
+        <div class="ctrl-demo">
+          <div style="display:flex;gap:20px;align-items:flex-end;justify-content:center">
+            <div style="text-align:center">
+              <div class="ios-gauge" style="--gauge-val:0.7">
+                <div class="ios-gauge-inner"><span class="ios-gauge-text">70%</span></div>
+              </div>
+              <div class="ios-gauge-label">Circular</div>
+            </div>
+            <div style="flex:1;max-width:160px">
+              <div style="font-size:11px;color:var(--label-tertiary);margin-bottom:4px">Linear Capacity</div>
+              <div class="ios-progress-track" style="height:10px;border-radius:5px"><div class="ios-progress-fill" style="width:70%;border-radius:5px;height:100%"></div></div>
+              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--label-tertiary);margin-top:2px"><span>0</span><span>100</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Gauge(value: 0.7) {
+  Text("Progress")
+}
+.gaugeStyle(.accessoryCircular)
+.gaugeStyle(.linearCapacity)</code></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ IMAGES & MEDIA ═══════════════ -->
+  <section class="section" id="sec-images-media">
+    <h2 class="section-title">图片与媒体 Images & Media</h2>
+    <div class="ctrl-grid">
+
+      <!-- 18. Image -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Image (SF Symbols)</div>
+        <div class="ctrl-demo">
+          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center">
+            <div style="text-align:center">
+              <span style="font-size:40px">❤️</span>
+              <div style="font-size:10px;color:var(--label-tertiary)">heart.fill</div>
+            </div>
+            <div style="text-align:center">
+              <span style="font-size:40px">⚙️</span>
+              <div style="font-size:10px;color:var(--label-tertiary)">gearshape</div>
+            </div>
+            <div style="text-align:center">
+              <div style="width:60px;height:60px;border-radius:50%;background:var(--fill);display:flex;align-items:center;justify-content:center;font-size:28px;overflow:hidden">🖼️</div>
+              <div style="font-size:10px;color:var(--label-tertiary)">.clipShape(.circle)</div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Image(systemName: "heart.fill")
+  .resizable()
+  .aspectRatio(contentMode: .fit)
+  .frame(width: 40, height: 40)
+  .clipShape(Circle())</code></div>
+      </div>
+
+      <!-- 19. AsyncImage -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">AsyncImage</div>
+        <div class="ctrl-demo">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="ios-async-img" id="asyncImgDemo">
+              <div class="ios-spinner" style="width:20px;height:20px;border-width:2px"></div>
+            </div>
+            <button class="ios-btn ios-btn-bordered" style="font-size:12px;padding:6px 12px" onclick="simulateAsyncImg()">Simulate Load</button>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>AsyncImage(url: imageURL) { phase in
+  switch phase {
+  case .empty: ProgressView()
+  case .success(let img):
+    img.resizable().aspectRatio(.fit)
+  case .failure:
+    Image(systemName: "photo")
+  }
+}</code></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ LAYOUT CONTAINERS ═══════════════ -->
+  <section class="section" id="sec-layout-containers">
+    <h2 class="section-title">布局容器 Layout Containers</h2>
+    <div class="ctrl-grid">
+
+      <!-- 20. VStack / HStack / ZStack -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">VStack / HStack / ZStack</div>
+        <div class="ctrl-demo">
+          <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center">
+            <div style="text-align:center">
+              <div class="layout-vstack">
+                <div class="layout-box" style="width:50px;height:24px;background:var(--accent)">1</div>
+                <div class="layout-box" style="width:50px;height:24px;background:var(--purple)">2</div>
+                <div class="layout-box" style="width:50px;height:24px;background:var(--green)">3</div>
+              </div>
+              <div style="font-size:10px;color:var(--label-tertiary);margin-top:4px">VStack</div>
+            </div>
+            <div style="text-align:center">
+              <div class="layout-hstack">
+                <div class="layout-box" style="width:36px;height:36px;background:var(--accent)">1</div>
+                <div class="layout-box" style="width:36px;height:36px;background:var(--purple)">2</div>
+                <div class="layout-box" style="width:36px;height:36px;background:var(--green)">3</div>
+              </div>
+              <div style="font-size:10px;color:var(--label-tertiary);margin-top:4px">HStack</div>
+            </div>
+            <div style="text-align:center">
+              <div class="layout-zstack">
+                <div class="layout-box" style="width:70px;height:70px;background:var(--accent);opacity:0.5;position:absolute;top:0;left:0;border-radius:8px">1</div>
+                <div class="layout-box" style="width:60px;height:60px;background:var(--purple);opacity:0.6;position:absolute;top:10px;left:10px;border-radius:8px">2</div>
+                <div class="layout-box" style="width:50px;height:50px;background:var(--green);position:absolute;top:15px;left:15px;border-radius:8px">3</div>
+              </div>
+              <div style="font-size:10px;color:var(--label-tertiary);margin-top:4px">ZStack</div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>VStack(alignment: .center, spacing: 8) { }
+HStack(spacing: 8) { }
+ZStack { }  // layers front-to-back</code></div>
+      </div>
+
+      <!-- 21. LazyVStack / LazyHStack -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">LazyVStack / LazyHStack</div>
+        <div class="ctrl-demo">
+          <div style="font-size:13px;color:var(--label-primary);text-align:center;padding:8px 0">
+            <div style="font-size:11px;color:var(--label-tertiary);margin-bottom:6px">Only creates views when visible (on-demand rendering)</div>
+            <div style="display:flex;gap:4px;justify-content:center;align-items:center;overflow:hidden;max-width:100%">
+              <div style="width:40px;height:28px;border-radius:6px;background:var(--accent);opacity:0.3;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;flex-shrink:0">...</div>
+              <div style="width:40px;height:28px;border-radius:6px;background:var(--accent);opacity:0.6;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;flex-shrink:0">5</div>
+              <div style="width:40px;height:28px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;flex-shrink:0;box-shadow:0 0 8px var(--accent)">6</div>
+              <div style="width:40px;height:28px;border-radius:6px;background:var(--accent);opacity:0.6;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;flex-shrink:0">7</div>
+              <div style="width:40px;height:28px;border-radius:6px;background:var(--accent);opacity:0.3;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;flex-shrink:0">...</div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>ScrollView {
+  LazyVStack {
+    ForEach(items) { item in
+      RowView(item)
+    }
+  }
+}</code></div>
+      </div>
+
+      <!-- 22. Grid -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Grid</div>
+        <div class="ctrl-demo">
+          <div class="ios-grid-demo">
+            <div class="ios-grid-cell" style="font-weight:600">Name</div>
+            <div class="ios-grid-cell" style="font-weight:600">Score</div>
+            <div class="ios-grid-cell">Alice</div>
+            <div class="ios-grid-cell">95</div>
+            <div class="ios-grid-cell">Bob</div>
+            <div class="ios-grid-cell">87</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Grid {
+  GridRow { Text("Name"); Text("Score") }
+  GridRow { Text("Alice"); Text("95") }
+  GridRow { Text("Bob"); Text("87") }
+}</code></div>
+      </div>
+
+      <!-- 23. Spacer -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Spacer</div>
+        <div class="ctrl-demo">
+          <div class="layout-spacer-demo">
+            <span style="font-size:13px;color:var(--label-primary)">Leading</span>
+            <div style="flex:1;height:1px;background:var(--accent);opacity:0.3;margin:0 8px;position:relative">
+              <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--accent)">Spacer()</span>
+            </div>
+            <span style="font-size:13px;color:var(--label-primary)">Trailing</span>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>HStack {
+  Text("Leading")
+  Spacer()
+  Text("Trailing")
+}</code></div>
+      </div>
+
+      <!-- 24. Divider -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Divider</div>
+        <div class="ctrl-demo">
+          <div style="width:100%">
+            <div style="font-size:13px;color:var(--label-primary);padding:6px 0">Item Above</div>
+            <div class="layout-divider"></div>
+            <div style="font-size:13px;color:var(--label-primary);padding:6px 0">Item Below</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>VStack {
+  Text("Item Above")
+  Divider()  // 1pt separator line
+  Text("Item Below")
+}</code></div>
+      </div>
+
+      <!-- 25. Group / GroupBox -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Group / GroupBox</div>
+        <div class="ctrl-demo">
+          <div class="ios-groupbox">
+            <div class="ios-groupbox-label">Settings</div>
+            <div class="ios-groupbox-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span style="font-size:14px">Notifications</span>
+                <div class="ios-toggle on" onclick="this.classList.toggle('on')" style="transform:scale(0.8)"><div class="knob"></div></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:14px">Sound</span>
+                <div class="ios-toggle" onclick="this.classList.toggle('on')" style="transform:scale(0.8)"><div class="knob"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>GroupBox("Settings") {
+  Toggle("Notifications", isOn: $notif)
+  Toggle("Sound", isOn: $sound)
+}</code></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ LISTS & DATA ═══════════════ -->
+  <section class="section" id="sec-lists-data">
+    <h2 class="section-title">列表与数据 Lists & Data</h2>
+    <div class="ctrl-grid">
+
+      <!-- 26. List -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">List</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ios-list">
+            <div class="ios-list-header">Section Header</div>
+            <div class="ios-list-row">
+              <span style="font-size:18px">📱</span>
+              <span class="ios-list-text">General</span>
+              <span class="ios-list-chevron">›</span>
+            </div>
+            <div class="ios-list-row" id="swipeRow" style="position:relative;overflow:hidden;transition:transform 0.3s">
+              <span style="font-size:18px">🔔</span>
+              <span class="ios-list-text">Notifications</span>
+              <span class="ios-list-detail">On</span>
+              <span class="ios-list-chevron">›</span>
+            </div>
+            <div class="ios-list-row">
+              <span style="font-size:18px">🔒</span>
+              <span class="ios-list-text">Privacy</span>
+              <span class="ios-list-chevron">›</span>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--label-quaternary);padding:6px;text-align:center">.listStyle(.insetGrouped)</div>
+        </div>
+        <div class="ctrl-code"><code>List {
+  Section("Header") {
+    Label("General", systemImage: "gear")
+    Label("Notifications",
+      systemImage: "bell")
+  }
+}
+.listStyle(.insetGrouped)</code></div>
+      </div>
+
+      <!-- 27. ScrollView -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">ScrollView</div>
+        <div class="ctrl-demo" style="padding:0;height:120px;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ios-scrollview" style="height:120px">
+            <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 1</div>
+            <div class="layout-divider"></div>
+            <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 2</div>
+            <div class="layout-divider"></div>
+            <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 3</div>
+            <div class="layout-divider"></div>
+            <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 4</div>
+            <div class="layout-divider"></div>
+            <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 5</div>
+            <div class="layout-divider"></div>
+            <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 6</div>
+            <div class="layout-divider"></div>
+            <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 7</div>
+            <div class="layout-divider"></div>
+            <div style="font-size:14px;color:var(--label-primary);padding:6px 0">Row 8</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>ScrollView {
+  VStack { ForEach(items) { Text($0) } }
+}
+ScrollView(.horizontal) { HStack { ... } }</code></div>
+      </div>
+
+      <!-- 28. LazyVGrid / LazyHGrid -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">LazyVGrid / LazyHGrid</div>
+        <div class="ctrl-demo">
+          <div style="font-size:11px;color:var(--label-tertiary);margin-bottom:6px;text-align:center">.adaptive(minimum: 48)</div>
+          <div class="layout-lazygrid">
+            <div class="layout-lazygrid-item">1</div>
+            <div class="layout-lazygrid-item" style="background:var(--purple);opacity:0.7">2</div>
+            <div class="layout-lazygrid-item" style="background:var(--green);opacity:0.7">3</div>
+            <div class="layout-lazygrid-item" style="background:var(--orange);opacity:0.7">4</div>
+            <div class="layout-lazygrid-item" style="background:var(--pink);opacity:0.7">5</div>
+            <div class="layout-lazygrid-item" style="background:var(--teal);opacity:0.7">6</div>
+            <div class="layout-lazygrid-item" style="background:var(--indigo);opacity:0.7">7</div>
+            <div class="layout-lazygrid-item" style="background:var(--red);opacity:0.7">8</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>let cols = [GridItem(.adaptive(minimum: 80))]
+LazyVGrid(columns: cols, spacing: 8) {
+  ForEach(items) { item in
+    ItemView(item)
+  }
+}</code></div>
+      </div>
+
+      <!-- 29. Table -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Table (iPad / Mac)</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <thead>
+              <tr style="background:var(--code-bg)">
+                <th style="padding:8px 12px;text-align:left;color:var(--label-secondary);font-weight:500">Name</th>
+                <th style="padding:8px 12px;text-align:left;color:var(--label-secondary);font-weight:500">Role</th>
+                <th style="padding:8px 12px;text-align:right;color:var(--label-secondary);font-weight:500">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-top:1px solid var(--separator)">
+                <td style="padding:8px 12px;color:var(--label-primary)">Alice</td>
+                <td style="padding:8px 12px;color:var(--label-secondary)">Engineer</td>
+                <td style="padding:8px 12px;text-align:right;color:var(--label-primary)">95</td>
+              </tr>
+              <tr style="border-top:1px solid var(--separator)">
+                <td style="padding:8px 12px;color:var(--label-primary)">Bob</td>
+                <td style="padding:8px 12px;color:var(--label-secondary)">Designer</td>
+                <td style="padding:8px 12px;text-align:right;color:var(--label-primary)">87</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ctrl-code"><code>Table(people) {
+  TableColumn("Name", value: \.name)
+  TableColumn("Role", value: \.role)
+  TableColumn("Score") { Text("\($0.score)") }
+}</code></div>
+      </div>
+
+      <!-- 30. DisclosureGroup -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">DisclosureGroup</div>
+        <div class="ctrl-demo">
+          <div class="ios-disclosure" onclick="this.classList.toggle('open')">
+            <div class="ios-disclosure-header">
+              <span>Advanced Settings</span>
+              <span class="ios-disclosure-chevron">›</span>
+            </div>
+            <div class="ios-disclosure-content">Debug mode, cache clearing, and developer options are available here.</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>DisclosureGroup("Advanced Settings") {
+  Toggle("Debug Mode", isOn: $debug)
+  Button("Clear Cache") { }
+}</code></div>
+      </div>
+
+      <!-- 31. OutlineGroup -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">OutlineGroup</div>
+        <div class="ctrl-demo">
+          <div style="width:100%;font-size:14px">
+            <div style="padding:4px 0;color:var(--label-primary);cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">▾ Documents</div>
+            <div style="padding-left:20px">
+              <div style="padding:4px 0;color:var(--label-primary);cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">▾ Projects</div>
+              <div style="padding-left:20px">
+                <div style="padding:4px 0;color:var(--label-secondary)">📄 Report.pdf</div>
+                <div style="padding:4px 0;color:var(--label-secondary)">📄 Design.fig</div>
+              </div>
+              <div style="padding:4px 0;color:var(--label-secondary)">📄 Notes.txt</div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>OutlineGroup(files,
+  children: \.children) { file in
+  Label(file.name,
+    systemImage: file.icon)
+}</code></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ NAVIGATION & PRESENTATION ═══════════════ -->
+  <section class="section" id="sec-navigation">
+    <h2 class="section-title">导航与弹窗 Navigation & Presentation</h2>
+    <div class="ctrl-grid">
+
+      <!-- 32. NavigationStack -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">NavigationStack</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ctrl-phone" id="navStackPhone">
+            <div class="ctrl-phone-status">9:41</div>
+            <div class="ctrl-phone-navbar" id="navStackBar">
+              <span class="ctrl-phone-back" style="display:none" id="navStackBack" onclick="navStackPop()">‹ Back</span>
+              <span class="ctrl-phone-title" id="navStackTitle">Settings</span>
+            </div>
+            <div class="ctrl-phone-content" id="navStackContent">
+              <div class="ios-list">
+                <div class="ios-list-row" style="cursor:pointer" onclick="navStackPush('General')">
+                  <span>📱</span><span class="ios-list-text">General</span><span class="ios-list-chevron">›</span>
+                </div>
+                <div class="ios-list-row" style="cursor:pointer" onclick="navStackPush('Display')">
+                  <span>🌟</span><span class="ios-list-text">Display</span><span class="ios-list-chevron">›</span>
+                </div>
+                <div class="ios-list-row" style="cursor:pointer" onclick="navStackPush('Sounds')">
+                  <span>🔊</span><span class="ios-list-text">Sounds</span><span class="ios-list-chevron">›</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>NavigationStack {
+  List(items) { item in
+    NavigationLink(item.title) {
+      DetailView(item)
+    }
+  }
+  .navigationTitle("Settings")
+}</code></div>
+      </div>
+
+      <!-- 33. NavigationSplitView -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">NavigationSplitView</div>
+        <div class="ctrl-demo" style="padding:0;height:200px;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ios-splitview">
+            <div class="ios-split-sidebar">
+              <div style="padding:8px 12px;font-size:13px;font-weight:600;color:var(--label-primary)">Sidebar</div>
+              <div class="ios-list-row" style="padding:8px 12px;cursor:pointer;background:rgba(10,132,255,0.12)" onclick="splitSelect(this,'Inbox')">
+                <span style="font-size:14px">📥</span><span class="ios-list-text" style="font-size:13px;color:var(--accent)">Inbox</span>
+              </div>
+              <div class="ios-list-row" style="padding:8px 12px;cursor:pointer" onclick="splitSelect(this,'Sent')">
+                <span style="font-size:14px">📤</span><span class="ios-list-text" style="font-size:13px">Sent</span>
+              </div>
+              <div class="ios-list-row" style="padding:8px 12px;cursor:pointer" onclick="splitSelect(this,'Drafts')">
+                <span style="font-size:14px">📝</span><span class="ios-list-text" style="font-size:13px">Drafts</span>
+              </div>
+            </div>
+            <div class="ios-split-detail" id="splitDetail">Select a mailbox</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>NavigationSplitView {
+  List(mailboxes) { mb in
+    Label(mb.name, systemImage: mb.icon)
+  }
+} detail: {
+  DetailView(selected)
+}</code></div>
+      </div>
+
+      <!-- 34. TabView -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">TabView</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ctrl-phone" style="height:240px" id="tabViewPhone">
+            <div class="ctrl-phone-status">9:41</div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--label-primary)" id="tabContent">🏠 Home</div>
+            <div class="ctrl-phone-tabbar">
+              <div class="ctrl-phone-tab active" onclick="switchTab(this,'🏠 Home')"><span class="ctrl-phone-tab-icon">🏠</span>Home</div>
+              <div class="ctrl-phone-tab" onclick="switchTab(this,'🔍 Search')"><span class="ctrl-phone-tab-icon">🔍</span>Search</div>
+              <div class="ctrl-phone-tab" onclick="switchTab(this,'👤 Profile')"><span class="ctrl-phone-tab-icon">👤</span>Profile</div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>TabView {
+  HomeView()
+    .tabItem { Label("Home",
+      systemImage: "house") }
+  SearchView()
+    .tabItem { Label("Search",
+      systemImage: "magnifyingglass") }
+}</code></div>
+      </div>
+
+      <!-- 35. Sheet -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Sheet</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ctrl-phone" style="height:260px" id="sheetPhone">
+            <div class="ctrl-phone-status">9:41</div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center">
+              <button class="ios-btn ios-btn-prominent" style="font-size:13px" onclick="showSheet()">Show Sheet</button>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>.sheet(isPresented: $showSheet) {
+  SheetContentView()
+    .presentationDetents(
+      [.medium, .large])
+}</code></div>
+      </div>
+
+      <!-- 36. Alert -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Alert</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ctrl-phone" style="height:220px" id="alertPhone">
+            <div class="ctrl-phone-status">9:41</div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center">
+              <button class="ios-btn ios-btn-bordered" style="font-size:13px" onclick="showCtrlAlert()">Show Alert</button>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>.alert("Delete Item?",
+  isPresented: $showAlert) {
+  Button("Delete", role: .destructive) { }
+  Button("Cancel", role: .cancel) { }
+} message: {
+  Text("This cannot be undone.")
+}</code></div>
+      </div>
+
+      <!-- 37. ConfirmationDialog -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">ConfirmationDialog</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ctrl-phone" style="height:280px" id="actionSheetPhone">
+            <div class="ctrl-phone-status">9:41</div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center">
+              <button class="ios-btn ios-btn-bordered" style="font-size:13px" onclick="showActionSheet()">Show Dialog</button>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>.confirmationDialog("Options",
+  isPresented: $showDialog) {
+  Button("Share") { }
+  Button("Edit") { }
+  Button("Delete",
+    role: .destructive) { }
+}</code></div>
+      </div>
+
+      <!-- 38. Popover -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Popover</div>
+        <div class="ctrl-demo" style="position:relative;min-height:100px">
+          <button class="ios-btn ios-btn-bordered" style="font-size:13px" id="popoverTrigger" onclick="togglePopover()">Show Popover</button>
+          <div id="popoverBubble" style="display:none;position:absolute;top:calc(100% - 10px);left:50%;transform:translateX(-50%);background:var(--bg-secondary);border:1px solid var(--separator);border-radius:12px;padding:12px 16px;box-shadow:0 8px 30px rgba(0,0,0,0.3);z-index:10;min-width:160px;text-align:center">
+            <div style="font-size:14px;color:var(--label-primary);margin-bottom:4px">Popover Content</div>
+            <div style="font-size:12px;color:var(--label-secondary)">This appears as a bubble attached to the trigger.</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>.popover(isPresented: $show) {
+  VStack {
+    Text("Popover Content")
+    Text("Attached to trigger")
+  }
+  .padding()
+}</code></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ SPECIAL CONTROLS ═══════════════ -->
+  <section class="section" id="sec-special-controls">
+    <h2 class="section-title">特殊控件 Special Controls</h2>
+    <div class="ctrl-grid">
+
+      <!-- 39. ShareLink -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">ShareLink</div>
+        <div class="ctrl-demo">
+          <button class="ios-btn ios-btn-bordered" style="display:flex;align-items:center;gap:6px;margin:0 auto" onclick="this.textContent='Shared!';setTimeout(()=>this.innerHTML='<span style=font-size:16px>📤</span> Share',1000)">
+            <span style="font-size:16px">📤</span> Share
+          </button>
+        </div>
+        <div class="ctrl-code"><code>ShareLink(item: url,
+  preview: SharePreview("Title",
+    image: Image("thumb")))
+// Opens system share sheet</code></div>
+      </div>
+
+      <!-- 40. PhotosPicker -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">PhotosPicker</div>
+        <div class="ctrl-demo">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+            <div style="width:56px;height:56px;border-radius:8px;background:var(--fill);display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer" onclick="this.textContent=this.textContent==='+'?'🖼️':'+'">+</div>
+            <div style="width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#FF6B6B,#4ECDC4)"></div>
+            <div style="width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#A8E6CF,#DCEDC1)"></div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>PhotosPicker("Select Photo",
+  selection: $item,
+  matching: .images)
+// Uses system photo picker UI</code></div>
+      </div>
+
+      <!-- 41. Map -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">Map</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <div class="ios-map">
+            <div class="ios-map-pin">📍</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>Map(position: $position) {
+  Marker("Office",
+    coordinate: office)
+  Annotation("You") {
+    Circle().fill(.blue)
+  }
+}</code></div>
+      </div>
+
+      <!-- 42. VideoPlayer -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">VideoPlayer</div>
+        <div class="ctrl-demo" style="padding:0;overflow:hidden;border-radius:var(--smallRadius)">
+          <div style="width:100%;height:120px;background:#000;display:flex;align-items:center;justify-content:center;position:relative;border-radius:var(--smallRadius)">
+            <span style="font-size:40px;opacity:0.8">▶️</span>
+            <div style="position:absolute;bottom:8px;left:8px;right:8px;display:flex;align-items:center;gap:6px">
+              <span style="font-size:10px;color:rgba(255,255,255,0.7)">0:00</span>
+              <div style="flex:1;height:3px;background:rgba(255,255,255,0.3);border-radius:2px"><div style="width:30%;height:100%;background:#fff;border-radius:2px"></div></div>
+              <span style="font-size:10px;color:rgba(255,255,255,0.7)">3:24</span>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>import AVKit
+VideoPlayer(player:
+  AVPlayer(url: videoURL))
+  .frame(height: 200)</code></div>
+      </div>
+
+      <!-- 43. ViewThatFits -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">ViewThatFits</div>
+        <div class="ctrl-demo">
+          <div style="text-align:center">
+            <div style="font-size:12px;color:var(--label-tertiary);margin-bottom:6px">Picks the first view that fits the available space</div>
+            <div style="border:1px dashed var(--separator);border-radius:8px;padding:8px;display:inline-block">
+              <div style="font-size:14px;color:var(--label-primary)">📱 Full Label</div>
+            </div>
+            <div style="font-size:10px;color:var(--label-quaternary);margin-top:4px">Wide space → full label &nbsp;|&nbsp; Narrow → icon only</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>ViewThatFits {
+  Label("Downloads",
+    systemImage: "arrow.down")
+  Image(systemName: "arrow.down")
+}</code></div>
+      </div>
+
+      <!-- 44. ContentUnavailableView -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">ContentUnavailableView</div>
+        <div class="ctrl-demo">
+          <div class="ios-empty-state">
+            <div class="ios-empty-icon">🔍</div>
+            <div class="ios-empty-title">No Results</div>
+            <div class="ios-empty-msg">Try a different search term or adjust your filters.</div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>ContentUnavailableView(
+  "No Results",
+  systemImage: "magnifyingglass",
+  description: Text("Try a different
+    search term.")
+) // iOS 17+</code></div>
+      </div>
+
+      <!-- 45. LabeledContent -->
+      <div class="ctrl-card">
+        <div class="ctrl-name">LabeledContent</div>
+        <div class="ctrl-demo">
+          <div style="width:100%">
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--separator)">
+              <span style="font-size:15px;color:var(--label-primary)">Version</span>
+              <span style="font-size:15px;color:var(--label-secondary)">2.1.0</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--separator)">
+              <span style="font-size:15px;color:var(--label-primary)">Build</span>
+              <span style="font-size:15px;color:var(--label-secondary)">42</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0">
+              <span style="font-size:15px;color:var(--label-primary)">Storage</span>
+              <span style="font-size:15px;color:var(--label-secondary)">128 GB</span>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl-code"><code>LabeledContent("Version", value: "2.1.0")
+LabeledContent("Build", value: "42")
+LabeledContent("Storage", value: "128 GB")
+// Common in Settings screens</code></div>
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
 <script>
@@ -2990,6 +4511,190 @@ function createParticles(container) {
       { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(0)', opacity: 0 }
     ], { duration: 600, easing: 'ease-out', fill: 'forwards' });
     setTimeout(() => p.remove(), 650);
+  }
+}
+
+/* ═══════════════════════════════════════════ */
+/* ═══ Module C: Interactive Controls JS ═══ */
+/* ═══════════════════════════════════════════ */
+
+/* Stepper */
+function stepperChange(delta) {
+  const el = document.getElementById('stepVal');
+  let v = parseInt(el.textContent) + delta;
+  if (v < 0) v = 0;
+  if (v > 10) v = 10;
+  el.textContent = v;
+}
+
+/* Menu dropdown */
+function toggleCtrlMenu(trigger) {
+  const dd = trigger.querySelector('.ios-menu-dropdown');
+  dd.classList.toggle('show');
+  const close = (e) => {
+    if (!trigger.contains(e.target)) { dd.classList.remove('show'); document.removeEventListener('click', close); }
+  };
+  setTimeout(() => document.addEventListener('click', close), 0);
+}
+
+/* Segmented picker */
+function segSelect(btn) {
+  btn.parentElement.querySelectorAll('.ios-seg-item').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* Calendar renderer (reused for DatePicker & MultiDatePicker) */
+function renderCalendar(containerId, options = {}) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const today = now.getDate();
+  const dayNames = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const prevDays = new Date(year, month, 0).getDate();
+
+  let html = '<div class="ios-cal-header"><button class="ios-cal-nav">‹</button><span>' + monthNames[month] + ' ' + year + '</span><button class="ios-cal-nav">›</button></div>';
+  html += '<div class="ios-cal-grid">';
+  dayNames.forEach(d => { html += '<div class="ios-cal-day">' + d + '</div>'; });
+
+  // Previous month trailing days
+  for (let i = firstDay - 1; i >= 0; i--) {
+    html += '<div class="ios-cal-cell other-month">' + (prevDays - i) + '</div>';
+  }
+  // Current month days
+  for (let d = 1; d <= daysInMonth; d++) {
+    const cls = d === today ? 'ios-cal-cell today' : 'ios-cal-cell';
+    const extra = options.multi ? ' onclick="toggleMultiDate(this,' + d + ')"' : '';
+    html += '<div class="' + cls + '"' + extra + '>' + d + '</div>';
+  }
+  // Next month leading days
+  const totalCells = firstDay + daysInMonth;
+  const remaining = (7 - (totalCells % 7)) % 7;
+  for (let d = 1; d <= remaining; d++) {
+    html += '<div class="ios-cal-cell other-month">' + d + '</div>';
+  }
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+let multiSelectedDates = new Set();
+function toggleMultiDate(cell, day) {
+  if (cell.classList.contains('other-month')) return;
+  if (multiSelectedDates.has(day)) {
+    multiSelectedDates.delete(day);
+    cell.classList.remove('multi-selected');
+  } else {
+    multiSelectedDates.add(day);
+    cell.classList.add('multi-selected');
+  }
+  const countEl = document.getElementById('multiDateCount');
+  if (countEl) countEl.textContent = multiSelectedDates.size + ' dates selected';
+}
+
+/* Init calendars */
+renderCalendar('ctrlCalendar');
+renderCalendar('multiDateCal', { multi: true });
+
+/* AsyncImage simulation */
+function simulateAsyncImg() {
+  const container = document.getElementById('asyncImgDemo');
+  container.innerHTML = '<div class="ios-spinner" style="width:20px;height:20px;border-width:2px"></div>';
+  setTimeout(() => {
+    container.innerHTML = '<div style="width:80px;height:80px;border-radius:10px;background:linear-gradient(135deg,#FF6B6B,#4ECDC4);display:flex;align-items:center;justify-content:center;font-size:28px">🖼️</div>';
+  }, 1500);
+}
+
+/* NavigationStack push/pop */
+function navStackPush(title) {
+  document.getElementById('navStackTitle').textContent = title;
+  document.getElementById('navStackBack').style.display = 'inline';
+  document.getElementById('navStackContent').innerHTML = '<div style="padding:16px;font-size:14px;color:var(--label-primary)">' + title + ' detail view content goes here.</div>';
+}
+function navStackPop() {
+  document.getElementById('navStackTitle').textContent = 'Settings';
+  document.getElementById('navStackBack').style.display = 'none';
+  document.getElementById('navStackContent').innerHTML = '<div class="ios-list"><div class="ios-list-row" style="cursor:pointer" onclick="navStackPush(\'General\')"><span>📱</span><span class="ios-list-text">General</span><span class="ios-list-chevron">›</span></div><div class="ios-list-row" style="cursor:pointer" onclick="navStackPush(\'Display\')"><span>🌟</span><span class="ios-list-text">Display</span><span class="ios-list-chevron">›</span></div><div class="ios-list-row" style="cursor:pointer" onclick="navStackPush(\'Sounds\')"><span>🔊</span><span class="ios-list-text">Sounds</span><span class="ios-list-chevron">›</span></div></div>';
+}
+
+/* NavigationSplitView */
+function splitSelect(row, label) {
+  row.closest('.ios-split-sidebar').querySelectorAll('.ios-list-row').forEach(r => {
+    r.style.background = 'transparent';
+    r.querySelector('.ios-list-text').style.color = '';
+  });
+  row.style.background = 'rgba(10,132,255,0.12)';
+  row.querySelector('.ios-list-text').style.color = 'var(--accent)';
+  document.getElementById('splitDetail').textContent = label + ' content';
+}
+
+/* TabView */
+function switchTab(tab, label) {
+  tab.parentElement.querySelectorAll('.ctrl-phone-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  document.getElementById('tabContent').textContent = label;
+}
+
+/* Sheet */
+function showSheet() {
+  const phone = document.getElementById('sheetPhone');
+  if (phone.querySelector('.ios-sheet-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'ios-sheet-overlay';
+  overlay.innerHTML = '<div class="ios-sheet"><div class="ios-sheet-handle"></div><div class="ios-sheet-content"><div style="font-size:16px;font-weight:600;margin-bottom:8px">Sheet Title</div><div style="font-size:13px;color:var(--label-secondary)">This is a half-sheet presentation. You can drag to dismiss.</div><button class="ios-btn ios-btn-prominent" style="margin-top:12px;font-size:13px;width:100%" onclick="this.closest(\'.ios-sheet-overlay\').remove()">Dismiss</button></div></div>';
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+  phone.style.position = 'relative';
+  phone.appendChild(overlay);
+}
+
+/* Alert */
+function showCtrlAlert() {
+  const phone = document.getElementById('alertPhone');
+  if (phone.querySelector('.ios-alert-overlay')) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'ios-alert-overlay';
+  overlay.innerHTML = '<div class="ios-alert-box"><div class="ios-alert-body"><div class="ios-alert-title">Delete Item?</div><div class="ios-alert-msg">This action cannot be undone.</div></div><div class="ios-alert-actions"><button class="ios-alert-btn" onclick="this.closest(\'.ios-alert-overlay\').remove()">Cancel</button><button class="ios-alert-btn" style="color:var(--red);font-weight:600" onclick="this.closest(\'.ios-alert-overlay\').remove()">Delete</button></div></div>';
+  phone.style.position = 'relative';
+  phone.appendChild(overlay);
+}
+
+/* ConfirmationDialog / ActionSheet */
+function showActionSheet() {
+  const phone = document.getElementById('actionSheetPhone');
+  if (phone.querySelector('.ios-actionsheet')) return;
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:absolute;inset:0;background:rgba(0,0,0,0.3);z-index:5';
+  const sheet = document.createElement('div');
+  sheet.className = 'ios-actionsheet';
+  sheet.innerHTML = '<div class="ios-actionsheet-group"><div class="ios-actionsheet-title">Options</div><button class="ios-actionsheet-btn" onclick="closeActionSheet()">Share</button><button class="ios-actionsheet-btn" onclick="closeActionSheet()">Edit</button><button class="ios-actionsheet-btn destructive" onclick="closeActionSheet()">Delete</button></div><button class="ios-actionsheet-cancel" onclick="closeActionSheet()">Cancel</button>';
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeActionSheet(); });
+  phone.style.position = 'relative';
+  phone.appendChild(overlay);
+  phone.appendChild(sheet);
+}
+function closeActionSheet() {
+  const phone = document.getElementById('actionSheetPhone');
+  const sheet = phone.querySelector('.ios-actionsheet');
+  const overlay = phone.querySelector('div[style*="inset:0"]');
+  if (sheet) sheet.remove();
+  if (overlay) overlay.remove();
+}
+
+/* Popover */
+function togglePopover() {
+  const bubble = document.getElementById('popoverBubble');
+  bubble.style.display = bubble.style.display === 'none' ? 'block' : 'none';
+  if (bubble.style.display === 'block') {
+    const close = (e) => {
+      if (!bubble.contains(e.target) && e.target.id !== 'popoverTrigger') {
+        bubble.style.display = 'none';
+        document.removeEventListener('click', close);
+      }
+    };
+    setTimeout(() => document.addEventListener('click', close), 0);
   }
 }
 </script>
