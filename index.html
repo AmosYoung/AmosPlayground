@@ -1365,7 +1365,8 @@ body{
   position:relative;
 }
 .sf-item:hover{border-color:var(--accent);background:var(--bg-tertiary)}
-.sf-item .sf-emoji{font-size:24px;line-height:1}
+.sf-item .sf-emoji{display:flex;align-items:center;justify-content:center;height:36px}
+.sf-item .sf-emoji svg{width:24px;height:24px;stroke:var(--accent);stroke-width:1.5}
 .sf-item .sf-name{
   font-size:10px;color:var(--label-secondary);text-align:center;
   word-break:break-all;line-height:1.3;user-select:all;
@@ -1394,6 +1395,7 @@ body{
   .comp-item{flex-direction:column}
 }
 </style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -4936,52 +4938,52 @@ function togglePopover() {
 /* ═══ SF Symbols Quick Reference JS ═══ */
 const sfSymbolsData = [
   { cat: "通讯 Communication", icons: [
-    ["phone.fill","📞"],["phone.arrow.up.right","📞"],["phone.arrow.down.left","📞"],["phone.badge.plus","📞"],["video.fill","📹"],["video.slash.fill","📹"],["bubble.left.fill","💬"],["bubble.right.fill","💬"],["bubble.left.and.bubble.right.fill","💬"],["envelope.fill","✉️"],["envelope.open.fill","📨"],["envelope.badge.fill","✉️"],["message.fill","💬"],["paperplane.fill","📤"],["bell.fill","🔔"],["bell.badge.fill","🔔"],["bell.slash.fill","🔕"],["megaphone.fill","📢"],["mic.fill","🎤"],["mic.slash.fill","🎤"]
+    ["phone.fill","phone"],["phone.arrow.up.right","phone-outgoing"],["phone.arrow.down.left","phone-incoming"],["phone.badge.plus","phone-call"],["video.fill","video"],["video.slash.fill","video-off"],["bubble.left.fill","message-circle"],["bubble.right.fill","message-circle"],["bubble.left.and.bubble.right.fill","messages-square"],["envelope.fill","mail"],["envelope.open.fill","mail-open"],["envelope.badge.fill","mail-plus"],["message.fill","message-square"],["paperplane.fill","send"],["bell.fill","bell"],["bell.badge.fill","bell-dot"],["bell.slash.fill","bell-off"],["megaphone.fill","megaphone"],["mic.fill","mic"],["mic.slash.fill","mic-off"]
   ]},
   { cat: "天气 Weather", icons: [
-    ["sun.max.fill","☀️"],["sun.min.fill","🌤"],["moon.fill","🌙"],["moon.stars.fill","🌙"],["cloud.fill","☁️"],["cloud.rain.fill","🌧"],["cloud.bolt.fill","⛈"],["cloud.snow.fill","🌨"],["cloud.sun.fill","⛅"],["cloud.moon.fill",""],["wind","💨"],["tornado","🌪"],["humidity.fill","💧"],["thermometer.medium","🌡"],["snowflake","❄️"]
+    ["sun.max.fill","sun"],["sun.min.fill","sun-dim"],["moon.fill","moon"],["moon.stars.fill","moon-star"],["cloud.fill","cloud"],["cloud.rain.fill","cloud-rain"],["cloud.bolt.fill","cloud-lightning"],["cloud.snow.fill","cloud-snow"],["cloud.sun.fill","cloud-sun"],["cloud.moon.fill","cloud-moon"],["wind","wind"],["tornado","tornado"],["humidity.fill","droplets"],["thermometer.medium","thermometer"],["snowflake","snowflake"]
   ]},
   { cat: "地图与位置 Maps", icons: [
-    ["map.fill","🗺"],["mappin","📍"],["mappin.circle.fill","📍"],["mappin.and.ellipse","📍"],["location.fill","📌"],["location.circle.fill","📌"],["location.north.fill","🧭"],["safari.fill","🧭"],["globe","🌐"],["globe.americas.fill","🌎"],["globe.europe.africa.fill","🌍"],["globe.asia.australia.fill","🌏"],["building.2.fill","🏢"],["house.fill","🏠"],["flag.fill","🏁"]
+    ["map.fill","map"],["mappin","map-pin"],["mappin.circle.fill","map-pin"],["mappin.and.ellipse","map-pin"],["location.fill","navigation"],["location.circle.fill","compass"],["location.north.fill","navigation"],["safari.fill","compass"],["globe","globe"],["globe.americas.fill","globe"],["globe.europe.africa.fill","globe"],["globe.asia.australia.fill","globe"],["building.2.fill","building-2"],["house.fill","house"],["flag.fill","flag"]
   ]},
   { cat: "物体与工具 Objects & Tools", icons: [
-    ["pencil","✏️"],["pencil.circle.fill","✏️"],["eraser.fill",""],["scribble",""],["highlighter","🖍"],["lasso",""],["scissors","✂️"],["doc.fill","📄"],["doc.text.fill","📄"],["doc.on.doc.fill","📄"],["clipboard.fill","📋"],["folder.fill","📁"],["paperclip","📎"],["link","🔗"],["printer.fill","🖨"],["briefcase.fill","💼"],["hammer.fill","🔨"],["wrench.fill","🔧"],["wrench.and.screwdriver.fill","🛠"],["gearshape.fill","⚙️"],["gearshape.2.fill","⚙️"],["slider.horizontal.3",""],["magnifyingglass","🔍"],["flashlight.on.fill","🔦"],["lightbulb.fill","💡"],["key.fill","🔑"],["lock.fill","🔒"],["lock.open.fill","🔓"],["pin.fill","📌"],["tag.fill","🏷"]
+    ["pencil","pencil"],["pencil.circle.fill","pencil"],["eraser.fill","eraser"],["scribble","pen-tool"],["highlighter","highlighter"],["lasso","lasso"],["scissors","scissors"],["doc.fill","file"],["doc.text.fill","file-text"],["doc.on.doc.fill","files"],["clipboard.fill","clipboard"],["folder.fill","folder"],["paperclip","paperclip"],["link","link"],["printer.fill","printer"],["briefcase.fill","briefcase"],["hammer.fill","hammer"],["wrench.fill","wrench"],["wrench.and.screwdriver.fill","wrench"],["gearshape.fill","settings"],["gearshape.2.fill","settings-2"],["slider.horizontal.3","sliders-horizontal"],["magnifyingglass","search"],["flashlight.on.fill","flashlight"],["lightbulb.fill","lightbulb"],["key.fill","key"],["lock.fill","lock"],["lock.open.fill","lock-open"],["pin.fill","pin"],["tag.fill","tag"]
   ]},
   { cat: "设备 Devices", icons: [
-    ["iphone","📱"],["ipad",""],["laptopcomputer","💻"],["desktopcomputer","🖥"],["display","🖥"],["applewatch","⌚"],["airpodspro","🎧"],["homepod.fill",""],["tv.fill","📺"],["gamecontroller.fill","🎮"],["keyboard.fill","⌨️"],["computermouse.fill","🖱"],["printer.fill","🖨"],["headphones","🎧"],["camera.fill","📷"]
+    ["iphone","smartphone"],["ipad","tablet"],["laptopcomputer","laptop"],["desktopcomputer","monitor"],["display","monitor"],["applewatch","watch"],["airpodspro","headphones"],["homepod.fill","speaker"],["tv.fill","tv"],["gamecontroller.fill","gamepad-2"],["keyboard.fill","keyboard"],["computermouse.fill","mouse"],["printer.fill","printer"],["headphones","headphones"],["camera.fill","camera"]
   ]},
   { cat: "人物 Human", icons: [
-    ["person.fill","👤"],["person.circle.fill","👤"],["person.2.fill","👥"],["person.3.fill","👥"],["person.crop.circle.fill","👤"],["person.badge.plus","👤"],["person.badge.minus","👤"],["person.badge.clock.fill","👤"],["figure.walk","🚶"],["figure.run","🏃"],["figure.wave",""],["figure.mind.and.body","🧘"],["hand.raised.fill","✋"],["hand.thumbsup.fill","👍"],["hand.thumbsdown.fill","👎"],["hands.clap.fill","👏"],["brain.head.profile","🧠"],["eye.fill","👁"],["eye.slash.fill",""],["face.smiling.fill","😊"]
+    ["person.fill","user"],["person.circle.fill","user-circle"],["person.2.fill","users"],["person.3.fill","users"],["person.crop.circle.fill","user-circle"],["person.badge.plus","user-plus"],["person.badge.minus","user-minus"],["person.badge.clock.fill","user-cog"],["figure.walk","footprints"],["figure.run","activity"],["figure.wave","hand"],["figure.mind.and.body","heart-pulse"],["hand.raised.fill","hand"],["hand.thumbsup.fill","thumbs-up"],["hand.thumbsdown.fill","thumbs-down"],["hands.clap.fill","hand"],["brain.head.profile","brain"],["eye.fill","eye"],["eye.slash.fill","eye-off"],["face.smiling.fill","smile"]
   ]},
   { cat: "自然 Nature", icons: [
-    ["leaf.fill","🍃"],["tree.fill","🌳"],["flame.fill","🔥"],["drop.fill","💧"],["pawprint.fill","🐾"],["tortoise.fill","🐢"],["hare.fill","🐇"],["bird.fill","🐦"],["fish.fill","🐟"],["ant.fill","🐜"],["ladybug.fill","🐞"],["fossil.shell.fill","🐚"],["mountain.2.fill","⛰"],["globe.americas.fill","🌎"],["sparkles","✨"]
+    ["leaf.fill","leaf"],["tree.fill","tree-pine"],["flame.fill","flame"],["drop.fill","droplet"],["pawprint.fill","paw-print"],["tortoise.fill","turtle"],["hare.fill","rabbit"],["bird.fill","bird"],["fish.fill","fish"],["ant.fill","bug"],["ladybug.fill","bug"],["fossil.shell.fill","shell"],["mountain.2.fill","mountain"],["globe.americas.fill","globe"],["sparkles","sparkles"]
   ]},
   { cat: "编辑 Editing", icons: [
-    ["square.and.pencil","✏️"],["pencil.and.outline","✏️"],["slider.horizontal.3",""],["dial.min.fill",""],["crop",""],["crop.rotate",""],["wand.and.stars","🪄"],["paintbrush.fill","🖌"],["paintbrush.pointed.fill","🖌"],["paintpalette.fill","🎨"],["eyedropper.full",""],["rotate.left.fill",""],["rotate.right.fill",""],["flip.horizontal.fill",""],["aspectratio.fill",""]
+    ["square.and.pencil","square-pen"],["pencil.and.outline","pen-line"],["slider.horizontal.3","sliders-horizontal"],["dial.min.fill","gauge"],["crop","crop"],["crop.rotate","rotate-cw"],["wand.and.stars","wand-sparkles"],["paintbrush.fill","paintbrush"],["paintbrush.pointed.fill","brush"],["paintpalette.fill","palette"],["eyedropper.full","pipette"],["rotate.left.fill","rotate-ccw"],["rotate.right.fill","rotate-cw"],["flip.horizontal.fill","flip-horizontal"],["aspectratio.fill","ratio"]
   ]},
   { cat: "媒体 Media", icons: [
-    ["play.fill","▶️"],["pause.fill","⏸"],["stop.fill","⏹"],["play.circle.fill","▶️"],["backward.fill","⏪"],["forward.fill","⏩"],["backward.end.fill","⏮"],["forward.end.fill","⏭"],["shuffle","🔀"],["repeat","🔁"],["music.note","🎵"],["music.note.list","🎵"],["music.mic","🎤"],["speaker.fill","🔈"],["speaker.wave.2.fill","🔊"],["speaker.slash.fill","🔇"],["airplayaudio",""],["airplayvideo",""],["photo.fill","🖼"],["photo.on.rectangle.fill","🖼"]
+    ["play.fill","play"],["pause.fill","pause"],["stop.fill","square"],["play.circle.fill","play-circle"],["backward.fill","skip-back"],["forward.fill","skip-forward"],["backward.end.fill","rewind"],["forward.end.fill","fast-forward"],["shuffle","shuffle"],["repeat","repeat"],["music.note","music"],["music.note.list","list-music"],["music.mic","mic"],["speaker.fill","volume-2"],["speaker.wave.2.fill","volume-2"],["speaker.slash.fill","volume-x"],["airplayaudio","cast"],["airplayvideo","cast"],["photo.fill","image"],["photo.on.rectangle.fill","images"]
   ]},
   { cat: "商业 Commerce", icons: [
-    ["cart.fill","🛒"],["bag.fill","🛍"],["creditcard.fill","💳"],["dollarsign.circle.fill","💲"],["yensign.circle.fill","💴"],["giftcard.fill","🎁"],["tag.fill","🏷"],["banknote.fill","💵"],["chart.bar.fill","📊"],["chart.pie.fill",""],["chart.line.uptrend.xyaxis","📈"],["storefront.fill","🏪"],["basket.fill","🧺"],["percent","%"],["building.columns.fill","🏛"]
+    ["cart.fill","shopping-cart"],["bag.fill","shopping-bag"],["creditcard.fill","credit-card"],["dollarsign.circle.fill","dollar-sign"],["yensign.circle.fill","japanese-yen"],["giftcard.fill","gift"],["tag.fill","tag"],["banknote.fill","banknote"],["chart.bar.fill","bar-chart-3"],["chart.pie.fill","pie-chart"],["chart.line.uptrend.xyaxis","trending-up"],["storefront.fill","store"],["basket.fill","shopping-basket"],["percent","percent"],["building.columns.fill","landmark"]
   ]},
   { cat: "健康 Health", icons: [
-    ["heart.fill","❤️"],["heart.circle.fill","❤️"],["heart.slash.fill","💔"],["bolt.heart.fill","❤️"],["cross.fill","➕"],["pills.fill","💊"],["stethoscope","🩺"],["bandage.fill","🩹"],["syringe.fill","💉"],["medical.thermometer.fill","🌡"],["lungs.fill","🫁"],["brain","🧠"],["ear.fill","👂"],["waveform.path.ecg",""],["allergens.fill",""]
+    ["heart.fill","heart"],["heart.circle.fill","heart"],["heart.slash.fill","heart-off"],["bolt.heart.fill","heart-pulse"],["cross.fill","cross"],["pills.fill","pill"],["stethoscope","stethoscope"],["bandage.fill","cross"],["syringe.fill","syringe"],["medical.thermometer.fill","thermometer"],["lungs.fill","wind"],["brain","brain"],["ear.fill","ear"],["waveform.path.ecg","activity"],["allergens.fill","flower-2"]
   ]},
   { cat: "箭头 Arrows", icons: [
-    ["arrow.up","⬆️"],["arrow.down","⬇️"],["arrow.left","⬅️"],["arrow.right","➡️"],["arrow.up.circle.fill","⬆️"],["arrow.down.circle.fill","⬇️"],["arrow.clockwise","🔃"],["arrow.counterclockwise","🔄"],["arrow.turn.up.left","↩️"],["arrow.turn.up.right","↪️"],["arrow.up.arrow.down","↕️"],["arrow.left.arrow.right","↔️"],["arrow.triangle.2.circlepath","🔄"],["chevron.up",""],["chevron.down",""]
+    ["arrow.up","arrow-up"],["arrow.down","arrow-down"],["arrow.left","arrow-left"],["arrow.right","arrow-right"],["arrow.up.circle.fill","arrow-up-circle"],["arrow.down.circle.fill","arrow-down-circle"],["arrow.clockwise","rotate-cw"],["arrow.counterclockwise","rotate-ccw"],["arrow.turn.up.left","corner-up-left"],["arrow.turn.up.right","corner-up-right"],["arrow.up.arrow.down","arrow-up-down"],["arrow.left.arrow.right","arrow-left-right"],["arrow.triangle.2.circlepath","refresh-cw"],["chevron.up","chevron-up"],["chevron.down","chevron-down"]
   ]},
   { cat: "形状 Shapes", icons: [
-    ["circle.fill","⚫"],["square.fill","⬛"],["triangle.fill","🔺"],["diamond.fill","💎"],["hexagon.fill","⬡"],["star.fill","⭐"],["heart.fill","❤️"],["shield.fill","🛡"],["seal.fill",""],["capsule.fill","💊"]
+    ["circle.fill","circle"],["square.fill","square"],["triangle.fill","triangle"],["diamond.fill","diamond"],["hexagon.fill","hexagon"],["star.fill","star"],["heart.fill","heart"],["shield.fill","shield"],["seal.fill","badge"],["capsule.fill","pill"]
   ]},
   { cat: "时间 Time", icons: [
-    ["clock.fill","🕐"],["alarm.fill","⏰"],["timer","⏱"],["stopwatch.fill","⏱"],["hourglass","⏳"],["calendar","📅"],["calendar.badge.plus","📅"],["calendar.badge.clock","📅"],["clock.arrow.circlepath","🕐"],["deskclock.fill","🕰"]
+    ["clock.fill","clock"],["alarm.fill","alarm-clock"],["timer","timer"],["stopwatch.fill","timer"],["hourglass","hourglass"],["calendar","calendar"],["calendar.badge.plus","calendar-plus"],["calendar.badge.clock","calendar-clock"],["clock.arrow.circlepath","history"],["deskclock.fill","clock"]
   ]},
   { cat: "系统与UI System & UI", icons: [
-    ["xmark","✕"],["xmark.circle.fill","❌"],["checkmark","✓"],["checkmark.circle.fill","✅"],["plus","➕"],["plus.circle.fill","➕"],["minus","➖"],["minus.circle.fill","➖"],["info.circle.fill","ℹ️"],["questionmark.circle.fill","❓"],["exclamationmark.triangle.fill","⚠️"],["line.3.horizontal","☰"],["square.grid.2x2.fill",""],["list.bullet",""],["list.number",""],["sidebar.left",""],["square.and.arrow.up",""],["square.and.arrow.down",""],["ellipsis","…"],["ellipsis.circle.fill","…"]
+    ["xmark","x"],["xmark.circle.fill","x-circle"],["checkmark","check"],["checkmark.circle.fill","check-circle"],["plus","plus"],["plus.circle.fill","plus-circle"],["minus","minus"],["minus.circle.fill","minus-circle"],["info.circle.fill","info"],["questionmark.circle.fill","help-circle"],["exclamationmark.triangle.fill","alert-triangle"],["line.3.horizontal","menu"],["square.grid.2x2.fill","grid"],["list.bullet","list"],["list.number","list-ordered"],["sidebar.left","panel-left"],["square.and.arrow.up","share"],["square.and.arrow.down","download"],["ellipsis","more-horizontal"],["ellipsis.circle.fill","more-horizontal"]
   ]},
   { cat: "连接 Connectivity", icons: [
-    ["wifi","📶"],["antenna.radiowaves.left.and.right","📡"],["bolt.horizontal.fill","⚡"],["network",""],["personalhotspot",""],["airplane","✈️"],["point.3.connected.trianglepath.dotted",""],["shareplay",""],["sensor.fill",""],["dot.radiowaves.left.and.right","📡"]
+    ["wifi","wifi"],["antenna.radiowaves.left.and.right","radio"],["bolt.horizontal.fill","zap"],["network","network"],["personalhotspot","wifi"],["airplane","plane"],["point.3.connected.trianglepath.dotted","share-2"],["shareplay","screen-share"],["sensor.fill","radio"],["dot.radiowaves.left.and.right","radio-tower"]
   ]}
 ];
 
@@ -5004,9 +5006,9 @@ function renderSFSymbols(filter) {
     html += '</div>';
     html += '<div class="sf-grid">';
     filtered.forEach(i => {
-      const emoji = i[1] || '';
+      const iconName = i[1] || 'circle';
       html += '<div class="sf-item" onclick="copySFName(this,\'' + i[0] + '\')" title="' + i[0] + '">';
-      html += '<span class="sf-emoji">' + (emoji || '⬜') + '</span>';
+      html += '<span class="sf-emoji"><i data-lucide="' + iconName + '"></i></span>';
       html += '<span class="sf-name">' + i[0] + '</span>';
       html += '</div>';
     });
@@ -5017,6 +5019,7 @@ function renderSFSymbols(filter) {
     html = '<div class="sf-empty-msg">没有匹配的 SF Symbol</div>';
   }
   container.innerHTML = html;
+  if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 function filterSFSymbols(value) {
