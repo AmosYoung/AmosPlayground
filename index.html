@@ -8,7 +8,7 @@
 /* ── Reset & Custom Properties ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",sans-serif;
+  --font:-apple-system-ui-rounded,-apple-system,BlinkMacSystemFont,"SF Pro Rounded","SF Pro Display","SF Pro Text","Helvetica Neue",sans-serif;
   --sidebar-w:280px;
   --transition:0.25s ease;
   /* spacing tokens */
@@ -724,48 +724,77 @@ body{
 
 /* ── Module C: Liquid Glass Design System ── */
 .glass-bg {
-  background: linear-gradient(135deg,
-    rgba(10,132,255,0.08) 0%,
-    rgba(191,90,242,0.06) 25%,
-    rgba(255,55,95,0.05) 50%,
-    rgba(48,209,88,0.06) 75%,
-    rgba(10,132,255,0.08) 100%);
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(120,200,255,0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(200,150,255,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(255,180,200,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(150,220,200,0.08) 0%, transparent 50%),
+    linear-gradient(135deg,
+      rgba(120,200,255,0.08) 0%,
+      rgba(200,150,255,0.06) 30%,
+      rgba(255,180,200,0.05) 60%,
+      rgba(150,220,200,0.07) 100%);
 }
 .glass-material {
   background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 0.5px solid rgba(255,255,255,0.18);
 }
 [data-theme="light"] .glass-material {
-  background: rgba(255,255,255,0.4);
-  border: 1px solid rgba(255,255,255,0.5);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.7);
+  border: 0.5px solid rgba(255,255,255,0.5);
 }
 .glass-interactive {
   background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 0.5px solid rgba(255,255,255,0.2);
   border-radius: 22px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.2);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 .glass-interactive:hover {
   background: rgba(255,255,255,0.22);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.25);
 }
 .glass-interactive:active {
   transform: scale(0.96);
   opacity: 0.9;
 }
+/* Glass Effect button */
+.ios-btn-glass{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border:0.5px solid rgba(255,255,255,0.18);
+  color:var(--label-primary);border-radius:22px;padding:8px 20px;
+  font-size:15px;font-weight:500;font-family:var(--font);cursor:pointer;
+  transition:all 0.15s;
+}
+.ios-btn-glass:hover{background:rgba(255,255,255,0.20)}
+.ios-btn-glass:active{opacity:0.7;transform:scale(0.97)}
+[data-theme="light"] .ios-btn-glass{
+  background:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.5);
+  color:var(--label-primary);
+}
+.ios-btn-glass-accent{
+  background:rgba(10,132,255,0.25);
+  backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border:0.5px solid rgba(10,132,255,0.3);
+  color:#fff;border-radius:22px;padding:8px 20px;
+  font-size:15px;font-weight:600;font-family:var(--font);cursor:pointer;
+  transition:all 0.15s;
+}
+.ios-btn-glass-accent:hover{background:rgba(10,132,255,0.35)}
+.ios-btn-glass-accent:active{opacity:0.7;transform:scale(0.97)}
+[data-theme="light"] .ios-btn-glass-accent{
+  background:rgba(0,122,255,0.2);border:0.5px solid rgba(0,122,255,0.3);
+  color:var(--accent);
+}
 .glass-note {
   background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 0.5px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   padding: 14px 18px;
   margin-bottom: var(--spaceXL);
@@ -775,7 +804,7 @@ body{
 }
 [data-theme="light"] .glass-note {
   background: rgba(255,255,255,0.35);
-  border: 1px solid rgba(255,255,255,0.45);
+  border: 0.5px solid rgba(255,255,255,0.45);
 }
 
 /* ── Module C: SwiftUI Controls ── */
@@ -790,6 +819,12 @@ body{
   background:var(--code-bg);border-radius:var(--smallRadius);padding:var(--spaceBase);
   margin-bottom:var(--spaceMD);min-height:48px;
   display:flex;align-items:center;justify-content:center;flex-direction:column;gap:var(--spaceSM);
+}
+.glass-bg .ctrl-demo{
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(100,180,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 70%, rgba(180,130,255,0.08) 0%, transparent 50%),
+    var(--code-bg);
 }
 .ctrl-code{
   background:var(--code-bg);border-radius:var(--smallRadius);padding:var(--spaceSM) var(--spaceMD);
@@ -888,28 +923,28 @@ body{
   font-family:var(--font);cursor:pointer;transition:all 0.15s;border:none;
 }
 .ios-btn:active{opacity:0.7;transform:scale(0.97)}
-.ios-btn-bordered{background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--accent);border:1px solid rgba(255,255,255,0.2)}
-.ios-btn-prominent{background:rgba(10,132,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;border:1px solid rgba(255,255,255,0.2);box-shadow:0 4px 16px rgba(10,132,255,0.3)}
+.ios-btn-bordered{background:rgba(255,255,255,0.1);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);color:var(--accent);border:0.5px solid rgba(255,255,255,0.2)}
+.ios-btn-prominent{background:rgba(10,132,255,0.85);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);color:#fff;border:0.5px solid rgba(255,255,255,0.2)}
 .ios-btn-borderless{background:transparent;color:var(--accent);border:none}
 .ios-btn-plain{background:transparent;color:var(--label-primary);border:none}
 .ios-btn-destructive{background:transparent;color:var(--red);border:1px solid var(--red)}
 .ios-btn-row{display:flex;flex-wrap:wrap;gap:var(--spaceSM);justify-content:center}
-[data-theme="light"] .ios-btn-bordered{background:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.4)}
-[data-theme="light"] .ios-btn-prominent{background:rgba(0,122,255,0.85);box-shadow:0 4px 16px rgba(0,122,255,0.3)}
+[data-theme="light"] .ios-btn-bordered{background:rgba(255,255,255,0.5);border:0.5px solid rgba(255,255,255,0.4)}
+[data-theme="light"] .ios-btn-prominent{background:rgba(0,122,255,0.85)}
 
 /* iOS Menu */
 .ios-menu-trigger{
-  padding:8px 16px;border-radius:10px;background:rgba(10,132,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  color:#fff;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.2);cursor:pointer;font-family:var(--font);
-  position:relative;box-shadow:0 4px 16px rgba(10,132,255,0.3);
+  padding:8px 16px;border-radius:10px;background:rgba(10,132,255,0.85);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
+  color:#fff;font-size:14px;font-weight:500;border:0.5px solid rgba(255,255,255,0.2);cursor:pointer;font-family:var(--font);
+  position:relative;
 }
 .ios-menu-dropdown{
   position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);
-  min-width:180px;background:rgba(255,255,255,0.15);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
-  border-radius:16px;border:1px solid rgba(255,255,255,0.2);overflow:hidden;z-index:10;
-  box-shadow:0 8px 32px rgba(0,0,0,0.2);display:none;
+  min-width:180px;background:rgba(255,255,255,0.12);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border-radius:16px;border:0.5px solid rgba(255,255,255,0.18);overflow:hidden;z-index:10;
+  display:none;
 }
-[data-theme="light"] .ios-menu-dropdown{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
+[data-theme="light"] .ios-menu-dropdown{background:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.5)}
 .ios-menu-dropdown.show{display:block}
 .ios-menu-item{
   padding:10px 16px;font-size:14px;color:var(--label-primary);cursor:pointer;
@@ -1107,24 +1142,23 @@ body{
 }
 .ctrl-phone-navbar{
   display:flex;align-items:center;padding:0 12px;height:44px;
-  background:rgba(255,255,255,0.12);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
-  border-bottom:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.10);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border-bottom:0.5px solid rgba(255,255,255,0.15);
 }
-[data-theme="light"] .ctrl-phone-navbar{background:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.3)}
+[data-theme="light"] .ctrl-phone-navbar{background:rgba(255,255,255,0.65);border-bottom:0.5px solid rgba(255,255,255,0.4)}
 .ctrl-phone-back{color:var(--accent);font-size:14px;cursor:pointer}
 .ctrl-phone-title{flex:1;text-align:center;font-size:15px;font-weight:600;color:var(--label-primary)}
 .ctrl-phone-content{
   flex:1;overflow-y:auto;padding:8px 0;
 }
 .ctrl-phone-tabbar{
-  position:absolute;bottom:12px;left:40px;right:40px;
-  display:flex;height:44px;
-  background:rgba(255,255,255,0.15);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
-  border:1px solid rgba(255,255,255,0.2);border-radius:99px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+  position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+  display:flex;gap:4px;padding:6px 16px;height:auto;
+  background:rgba(255,255,255,0.15);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border:0.5px solid rgba(255,255,255,0.2);border-radius:99px;
   align-items:center;justify-content:center;z-index:5;
 }
-[data-theme="light"] .ctrl-phone-tabbar{background:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.5)}
+[data-theme="light"] .ctrl-phone-tabbar{background:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.5)}
 .ctrl-phone-tab{
   flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:2px;cursor:pointer;color:var(--label-tertiary);font-size:10px;transition:color 0.2s;
@@ -1138,11 +1172,11 @@ body{
   display:flex;align-items:flex-end;
 }
 .ios-sheet{
-  width:100%;background:rgba(255,255,255,0.15);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
-  border-radius:22px 22px 0 0;border:1px solid rgba(255,255,255,0.2);border-bottom:none;
+  width:100%;background:rgba(255,255,255,0.12);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border-radius:22px 22px 0 0;border:0.5px solid rgba(255,255,255,0.18);border-bottom:none;
   padding:8px 0 0;max-height:65%;
 }
-[data-theme="light"] .ios-sheet{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
+[data-theme="light"] .ios-sheet{background:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.5)}
 .ios-sheet-handle{
   width:36px;height:5px;border-radius:3px;background:var(--fill);margin:0 auto 10px;
 }
@@ -1169,11 +1203,11 @@ body{
   display:flex;align-items:center;justify-content:center;
 }
 .ios-alert-box{
-  width:80%;max-width:270px;background:rgba(255,255,255,0.18);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
-  border-radius:22px;border:1px solid rgba(255,255,255,0.2);
-  overflow:hidden;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.2);
+  width:80%;max-width:270px;background:rgba(255,255,255,0.12);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border-radius:22px;border:0.5px solid rgba(255,255,255,0.18);
+  overflow:hidden;text-align:center;
 }
-[data-theme="light"] .ios-alert-box{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
+[data-theme="light"] .ios-alert-box{background:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.5)}
 .ios-alert-body{padding:20px 16px 16px}
 .ios-alert-title{font-size:16px;font-weight:600;color:var(--label-primary);margin-bottom:4px}
 .ios-alert-msg{font-size:13px;color:var(--label-secondary)}
@@ -1190,11 +1224,10 @@ body{
   position:absolute;bottom:0;left:8px;right:8px;z-index:10;
 }
 .ios-actionsheet-group{
-  background:rgba(255,255,255,0.18);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
-  border-radius:22px;border:1px solid rgba(255,255,255,0.2);overflow:hidden;margin-bottom:8px;
-  box-shadow:0 8px 32px rgba(0,0,0,0.15);
+  background:rgba(255,255,255,0.12);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border-radius:22px;border:0.5px solid rgba(255,255,255,0.18);overflow:hidden;margin-bottom:8px;
 }
-[data-theme="light"] .ios-actionsheet-group{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
+[data-theme="light"] .ios-actionsheet-group{background:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.5)}
 .ios-actionsheet-title{
   padding:14px 16px 4px;font-size:12px;color:var(--label-secondary);text-align:center;
 }
@@ -1206,12 +1239,12 @@ body{
 .ios-actionsheet-btn.destructive{color:var(--red)}
 .ios-actionsheet-cancel{
   display:block;width:100%;padding:14px;border-radius:22px;
-  background:rgba(255,255,255,0.2);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
-  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.15);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  border:0.5px solid rgba(255,255,255,0.18);
   font-size:17px;font-weight:600;color:var(--accent);
   font-family:var(--font);cursor:pointer;text-align:center;margin-bottom:8px;
 }
-[data-theme="light"] .ios-actionsheet-cancel{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.5)}
+[data-theme="light"] .ios-actionsheet-cancel{background:rgba(255,255,255,0.7);border:0.5px solid rgba(255,255,255,0.5)}
 
 /* iOS ContentUnavailableView */
 .ios-empty-state{
@@ -1294,6 +1327,63 @@ body{
 /* Multi-date calendar */
 .ios-cal-cell.multi-selected{background:rgba(10,132,255,0.2);color:var(--accent);font-weight:600}
 
+/* ── SF Symbols Quick Reference ── */
+.sf-search{
+  width:100%;padding:10px 16px;font-size:15px;font-family:var(--font);
+  background:var(--bg-secondary);color:var(--label-primary);
+  border:1px solid var(--separator);border-radius:var(--pillRadius);
+  outline:none;transition:border-color var(--transition);
+  margin-bottom:var(--spaceXL);
+}
+.sf-search:focus{border-color:var(--accent)}
+.sf-search::placeholder{color:var(--label-tertiary)}
+
+.sf-category{margin-bottom:var(--spaceXL)}
+.sf-category-header{
+  display:flex;align-items:center;gap:var(--spaceSM);cursor:pointer;
+  padding:var(--spaceSM) 0;user-select:none;
+}
+.sf-category-header h3{
+  font-size:16px;font-weight:600;color:var(--label-primary);margin:0;
+}
+.sf-category-header .sf-chevron{
+  font-size:10px;color:var(--label-secondary);transition:transform var(--transition);display:inline-block;
+}
+.sf-category.collapsed .sf-chevron{transform:rotate(-90deg)}
+.sf-category.collapsed .sf-grid{display:none}
+.sf-category-count{font-size:12px;color:var(--label-tertiary);margin-left:auto}
+
+.sf-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:var(--spaceSM);margin-top:var(--spaceSM);
+}
+.sf-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:var(--spaceMD) var(--spaceXS);border-radius:var(--cardRadius);
+  background:var(--bg-secondary);border:1px solid var(--separator);
+  cursor:pointer;transition:all var(--transition);min-height:80px;gap:6px;
+  position:relative;
+}
+.sf-item:hover{border-color:var(--accent);background:var(--bg-tertiary)}
+.sf-item .sf-emoji{font-size:24px;line-height:1}
+.sf-item .sf-name{
+  font-size:10px;color:var(--label-secondary);text-align:center;
+  word-break:break-all;line-height:1.3;user-select:all;
+}
+.sf-item.copied::after{
+  content:'Copied!';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:var(--accent);color:#fff;font-size:11px;font-weight:600;
+  padding:4px 10px;border-radius:var(--pillRadius);pointer-events:none;
+  animation:sfCopiedFade 1s ease forwards;
+}
+@keyframes sfCopiedFade{
+  0%{opacity:1}70%{opacity:1}100%{opacity:0}
+}
+.sf-empty-msg{
+  grid-column:1/-1;text-align:center;padding:var(--space2XL);
+  color:var(--label-tertiary);font-size:14px;
+}
+
 /* ── Responsive ── */
 @media(max-width:768px){
   .sidebar{transform:translateX(-100%)}
@@ -1361,6 +1451,7 @@ body{
       <li><a href="#sec-lists-data">列表与数据 Lists & Data</a></li>
       <li><a href="#sec-navigation">导航与弹窗 Navigation & Presentation</a></li>
       <li><a href="#sec-special-controls">特殊控件 Special Controls</a></li>
+      <li><a href="#sec-sf-symbols-ref">SF Symbols 速查</a></li>
     </ul>
   </div>
 </nav>
@@ -2597,12 +2688,20 @@ attr.link = URL(string: "https://...")</code></div>
             <button class="ios-btn ios-btn-plain">Plain</button>
             <button class="ios-btn ios-btn-destructive">Delete</button>
           </div>
+          <div style="width:100%;height:1px;background:var(--separator);margin:8px 0"></div>
+          <div style="font-size:11px;color:var(--label-tertiary);text-align:center;margin-bottom:4px">iOS 26 Liquid Glass</div>
+          <div class="ios-btn-row">
+            <button class="ios-btn-glass">.glassEffect()</button>
+            <button class="ios-btn-glass-accent">Glass Accent</button>
+          </div>
         </div>
         <div class="ctrl-code"><code>Button("Action") { }
   .buttonStyle(.borderedProminent)
   .buttonStyle(.bordered)
-  .buttonStyle(.borderless)
-  .buttonStyle(.plain)</code></div>
+// iOS 26 Liquid Glass:
+Button("Glass") { }
+  .glassEffect()
+  .clipShape(.capsule)</code></div>
       </div>
 
       <!-- 5. TextField -->
@@ -3285,13 +3384,15 @@ LazyVGrid(columns: cols, spacing: 8) {
             </div>
           </div>
         </div>
-        <div class="ctrl-code"><code>NavigationStack {
+        <div class="ctrl-code"><code>// iOS 26: Glass material nav bar
+NavigationStack {
   List(items) { item in
     NavigationLink(item.title) {
       DetailView(item)
     }
   }
   .navigationTitle("Settings")
+  // Nav bar is automatically glass
 }</code></div>
       </div>
 
@@ -3338,14 +3439,17 @@ LazyVGrid(columns: cols, spacing: 8) {
             </div>
           </div>
         </div>
-        <div class="ctrl-code"><code>TabView {
-  HomeView()
-    .tabItem { Label("Home",
-      systemImage: "house") }
-  SearchView()
-    .tabItem { Label("Search",
-      systemImage: "magnifyingglass") }
-}</code></div>
+        <div class="ctrl-code"><code>// iOS 26: Floating glass pill tab bar
+TabView {
+  Tab("Home", systemImage: "house") {
+    HomeView()
+  }
+  Tab("Search",
+    systemImage: "magnifyingglass") {
+    SearchView()
+  }
+}
+// .tabBarPlacement(.automatic)</code></div>
       </div>
 
       <!-- 35. Sheet -->
@@ -3359,10 +3463,12 @@ LazyVGrid(columns: cols, spacing: 8) {
             </div>
           </div>
         </div>
-        <div class="ctrl-code"><code>.sheet(isPresented: $showSheet) {
+        <div class="ctrl-code"><code>// iOS 26: Glass material sheet
+.sheet(isPresented: $showSheet) {
   SheetContentView()
     .presentationDetents(
       [.medium, .large])
+    // Glass background automatic
 }</code></div>
       </div>
 
@@ -3377,10 +3483,13 @@ LazyVGrid(columns: cols, spacing: 8) {
             </div>
           </div>
         </div>
-        <div class="ctrl-code"><code>.alert("Delete Item?",
+        <div class="ctrl-code"><code>// iOS 26: Glass material alert
+.alert("Delete Item?",
   isPresented: $showAlert) {
-  Button("Delete", role: .destructive) { }
-  Button("Cancel", role: .cancel) { }
+  Button("Delete",
+    role: .destructive) { }
+  Button("Cancel",
+    role: .cancel) { }
 } message: {
   Text("This cannot be undone.")
 }</code></div>
@@ -3411,7 +3520,7 @@ LazyVGrid(columns: cols, spacing: 8) {
         <div class="ctrl-name">Popover 气泡弹窗</div>
         <div class="ctrl-demo" style="position:relative;min-height:100px">
           <button class="ios-btn ios-btn-bordered" style="font-size:13px" id="popoverTrigger" onclick="togglePopover()">Show Popover</button>
-          <div id="popoverBubble" style="display:none;position:absolute;top:calc(100% - 10px);left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.15);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border:1px solid rgba(255,255,255,0.2);border-radius:18px;padding:12px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:10;min-width:160px;text-align:center">
+          <div id="popoverBubble" style="display:none;position:absolute;top:calc(100% - 10px);left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.12);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border:0.5px solid rgba(255,255,255,0.18);border-radius:18px;padding:12px 16px;z-index:10;min-width:160px;text-align:center">
             <div style="font-size:14px;color:var(--label-primary);margin-bottom:4px">Popover Content</div>
             <div style="font-size:12px;color:var(--label-secondary)">This appears as a bubble attached to the trigger.</div>
           </div>
@@ -3562,6 +3671,13 @@ LabeledContent("Storage", value: "128 GB")
       </div>
 
     </div>
+  </section>
+
+  <!-- ═══════════════ SF SYMBOLS QUICK REFERENCE ═══════════════ -->
+  <section class="section" id="sec-sf-symbols-ref">
+    <h2 class="section-title">SF Symbols 速查 Quick Reference</h2>
+    <input type="text" class="sf-search" id="sfSearch" placeholder="搜索 SF Symbol 名称..." oninput="filterSFSymbols(this.value)">
+    <div id="sfContainer"></div>
   </section>
 
 </main>
@@ -4816,6 +4932,105 @@ function togglePopover() {
     setTimeout(() => document.addEventListener('click', close), 0);
   }
 }
+
+/* ═══ SF Symbols Quick Reference JS ═══ */
+const sfSymbolsData = [
+  { cat: "通讯 Communication", icons: [
+    ["phone.fill","📞"],["phone.arrow.up.right","📞"],["phone.arrow.down.left","📞"],["phone.badge.plus","📞"],["video.fill","📹"],["video.slash.fill","📹"],["bubble.left.fill","💬"],["bubble.right.fill","💬"],["bubble.left.and.bubble.right.fill","💬"],["envelope.fill","✉️"],["envelope.open.fill","📨"],["envelope.badge.fill","✉️"],["message.fill","💬"],["paperplane.fill","📤"],["bell.fill","🔔"],["bell.badge.fill","🔔"],["bell.slash.fill","🔕"],["megaphone.fill","📢"],["mic.fill","🎤"],["mic.slash.fill","🎤"]
+  ]},
+  { cat: "天气 Weather", icons: [
+    ["sun.max.fill","☀️"],["sun.min.fill","🌤"],["moon.fill","🌙"],["moon.stars.fill","🌙"],["cloud.fill","☁️"],["cloud.rain.fill","🌧"],["cloud.bolt.fill","⛈"],["cloud.snow.fill","🌨"],["cloud.sun.fill","⛅"],["cloud.moon.fill",""],["wind","💨"],["tornado","🌪"],["humidity.fill","💧"],["thermometer.medium","🌡"],["snowflake","❄️"]
+  ]},
+  { cat: "地图与位置 Maps", icons: [
+    ["map.fill","🗺"],["mappin","📍"],["mappin.circle.fill","📍"],["mappin.and.ellipse","📍"],["location.fill","📌"],["location.circle.fill","📌"],["location.north.fill","🧭"],["safari.fill","🧭"],["globe","🌐"],["globe.americas.fill","🌎"],["globe.europe.africa.fill","🌍"],["globe.asia.australia.fill","🌏"],["building.2.fill","🏢"],["house.fill","🏠"],["flag.fill","🏁"]
+  ]},
+  { cat: "物体与工具 Objects & Tools", icons: [
+    ["pencil","✏️"],["pencil.circle.fill","✏️"],["eraser.fill",""],["scribble",""],["highlighter","🖍"],["lasso",""],["scissors","✂️"],["doc.fill","📄"],["doc.text.fill","📄"],["doc.on.doc.fill","📄"],["clipboard.fill","📋"],["folder.fill","📁"],["paperclip","📎"],["link","🔗"],["printer.fill","🖨"],["briefcase.fill","💼"],["hammer.fill","🔨"],["wrench.fill","🔧"],["wrench.and.screwdriver.fill","🛠"],["gearshape.fill","⚙️"],["gearshape.2.fill","⚙️"],["slider.horizontal.3",""],["magnifyingglass","🔍"],["flashlight.on.fill","🔦"],["lightbulb.fill","💡"],["key.fill","🔑"],["lock.fill","🔒"],["lock.open.fill","🔓"],["pin.fill","📌"],["tag.fill","🏷"]
+  ]},
+  { cat: "设备 Devices", icons: [
+    ["iphone","📱"],["ipad",""],["laptopcomputer","💻"],["desktopcomputer","🖥"],["display","🖥"],["applewatch","⌚"],["airpodspro","🎧"],["homepod.fill",""],["tv.fill","📺"],["gamecontroller.fill","🎮"],["keyboard.fill","⌨️"],["computermouse.fill","🖱"],["printer.fill","🖨"],["headphones","🎧"],["camera.fill","📷"]
+  ]},
+  { cat: "人物 Human", icons: [
+    ["person.fill","👤"],["person.circle.fill","👤"],["person.2.fill","👥"],["person.3.fill","👥"],["person.crop.circle.fill","👤"],["person.badge.plus","👤"],["person.badge.minus","👤"],["person.badge.clock.fill","👤"],["figure.walk","🚶"],["figure.run","🏃"],["figure.wave",""],["figure.mind.and.body","🧘"],["hand.raised.fill","✋"],["hand.thumbsup.fill","👍"],["hand.thumbsdown.fill","👎"],["hands.clap.fill","👏"],["brain.head.profile","🧠"],["eye.fill","👁"],["eye.slash.fill",""],["face.smiling.fill","😊"]
+  ]},
+  { cat: "自然 Nature", icons: [
+    ["leaf.fill","🍃"],["tree.fill","🌳"],["flame.fill","🔥"],["drop.fill","💧"],["pawprint.fill","🐾"],["tortoise.fill","🐢"],["hare.fill","🐇"],["bird.fill","🐦"],["fish.fill","🐟"],["ant.fill","🐜"],["ladybug.fill","🐞"],["fossil.shell.fill","🐚"],["mountain.2.fill","⛰"],["globe.americas.fill","🌎"],["sparkles","✨"]
+  ]},
+  { cat: "编辑 Editing", icons: [
+    ["square.and.pencil","✏️"],["pencil.and.outline","✏️"],["slider.horizontal.3",""],["dial.min.fill",""],["crop",""],["crop.rotate",""],["wand.and.stars","🪄"],["paintbrush.fill","🖌"],["paintbrush.pointed.fill","🖌"],["paintpalette.fill","🎨"],["eyedropper.full",""],["rotate.left.fill",""],["rotate.right.fill",""],["flip.horizontal.fill",""],["aspectratio.fill",""]
+  ]},
+  { cat: "媒体 Media", icons: [
+    ["play.fill","▶️"],["pause.fill","⏸"],["stop.fill","⏹"],["play.circle.fill","▶️"],["backward.fill","⏪"],["forward.fill","⏩"],["backward.end.fill","⏮"],["forward.end.fill","⏭"],["shuffle","🔀"],["repeat","🔁"],["music.note","🎵"],["music.note.list","🎵"],["music.mic","🎤"],["speaker.fill","🔈"],["speaker.wave.2.fill","🔊"],["speaker.slash.fill","🔇"],["airplayaudio",""],["airplayvideo",""],["photo.fill","🖼"],["photo.on.rectangle.fill","🖼"]
+  ]},
+  { cat: "商业 Commerce", icons: [
+    ["cart.fill","🛒"],["bag.fill","🛍"],["creditcard.fill","💳"],["dollarsign.circle.fill","💲"],["yensign.circle.fill","💴"],["giftcard.fill","🎁"],["tag.fill","🏷"],["banknote.fill","💵"],["chart.bar.fill","📊"],["chart.pie.fill",""],["chart.line.uptrend.xyaxis","📈"],["storefront.fill","🏪"],["basket.fill","🧺"],["percent","%"],["building.columns.fill","🏛"]
+  ]},
+  { cat: "健康 Health", icons: [
+    ["heart.fill","❤️"],["heart.circle.fill","❤️"],["heart.slash.fill","💔"],["bolt.heart.fill","❤️"],["cross.fill","➕"],["pills.fill","💊"],["stethoscope","🩺"],["bandage.fill","🩹"],["syringe.fill","💉"],["medical.thermometer.fill","🌡"],["lungs.fill","🫁"],["brain","🧠"],["ear.fill","👂"],["waveform.path.ecg",""],["allergens.fill",""]
+  ]},
+  { cat: "箭头 Arrows", icons: [
+    ["arrow.up","⬆️"],["arrow.down","⬇️"],["arrow.left","⬅️"],["arrow.right","➡️"],["arrow.up.circle.fill","⬆️"],["arrow.down.circle.fill","⬇️"],["arrow.clockwise","🔃"],["arrow.counterclockwise","🔄"],["arrow.turn.up.left","↩️"],["arrow.turn.up.right","↪️"],["arrow.up.arrow.down","↕️"],["arrow.left.arrow.right","↔️"],["arrow.triangle.2.circlepath","🔄"],["chevron.up",""],["chevron.down",""]
+  ]},
+  { cat: "形状 Shapes", icons: [
+    ["circle.fill","⚫"],["square.fill","⬛"],["triangle.fill","🔺"],["diamond.fill","💎"],["hexagon.fill","⬡"],["star.fill","⭐"],["heart.fill","❤️"],["shield.fill","🛡"],["seal.fill",""],["capsule.fill","💊"]
+  ]},
+  { cat: "时间 Time", icons: [
+    ["clock.fill","🕐"],["alarm.fill","⏰"],["timer","⏱"],["stopwatch.fill","⏱"],["hourglass","⏳"],["calendar","📅"],["calendar.badge.plus","📅"],["calendar.badge.clock","📅"],["clock.arrow.circlepath","🕐"],["deskclock.fill","🕰"]
+  ]},
+  { cat: "系统与UI System & UI", icons: [
+    ["xmark","✕"],["xmark.circle.fill","❌"],["checkmark","✓"],["checkmark.circle.fill","✅"],["plus","➕"],["plus.circle.fill","➕"],["minus","➖"],["minus.circle.fill","➖"],["info.circle.fill","ℹ️"],["questionmark.circle.fill","❓"],["exclamationmark.triangle.fill","⚠️"],["line.3.horizontal","☰"],["square.grid.2x2.fill",""],["list.bullet",""],["list.number",""],["sidebar.left",""],["square.and.arrow.up",""],["square.and.arrow.down",""],["ellipsis","…"],["ellipsis.circle.fill","…"]
+  ]},
+  { cat: "连接 Connectivity", icons: [
+    ["wifi","📶"],["antenna.radiowaves.left.and.right","📡"],["bolt.horizontal.fill","⚡"],["network",""],["personalhotspot",""],["airplane","✈️"],["point.3.connected.trianglepath.dotted",""],["shareplay",""],["sensor.fill",""],["dot.radiowaves.left.and.right","📡"]
+  ]}
+];
+
+function renderSFSymbols(filter) {
+  const container = document.getElementById('sfContainer');
+  let html = '';
+  let hasResults = false;
+  const q = (filter || '').toLowerCase().trim();
+
+  sfSymbolsData.forEach(group => {
+    const filtered = group.icons.filter(i => !q || i[0].toLowerCase().includes(q));
+    if (filtered.length === 0) return;
+    hasResults = true;
+    const catId = group.cat.replace(/\s+/g, '-');
+    html += '<div class="sf-category" id="sf-cat-' + catId + '">';
+    html += '<div class="sf-category-header" onclick="this.parentElement.classList.toggle(\'collapsed\')">';
+    html += '<span class="sf-chevron">▼</span>';
+    html += '<h3>' + group.cat + '</h3>';
+    html += '<span class="sf-category-count">' + filtered.length + '</span>';
+    html += '</div>';
+    html += '<div class="sf-grid">';
+    filtered.forEach(i => {
+      const emoji = i[1] || '';
+      html += '<div class="sf-item" onclick="copySFName(this,\'' + i[0] + '\')" title="' + i[0] + '">';
+      html += '<span class="sf-emoji">' + (emoji || '⬜') + '</span>';
+      html += '<span class="sf-name">' + i[0] + '</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+  });
+
+  if (!hasResults) {
+    html = '<div class="sf-empty-msg">没有匹配的 SF Symbol</div>';
+  }
+  container.innerHTML = html;
+}
+
+function filterSFSymbols(value) {
+  renderSFSymbols(value);
+}
+
+function copySFName(el, name) {
+  navigator.clipboard.writeText(name).catch(() => {});
+  el.classList.add('copied');
+  setTimeout(() => el.classList.remove('copied'), 1000);
+}
+
+// Initial render
+renderSFSymbols();
 </script>
 </body>
 </html>
