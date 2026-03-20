@@ -1415,6 +1415,7 @@ body{
     <ul class="nav-links">
       <li><a href="#sec-typography">Typography 字体系统</a></li>
       <li><a href="#sec-spacing">Spacing 间距系统</a></li>
+      <li><a href="#sec-liquid-glass">Liquid Glass 液态玻璃组件</a></li>
       <li><a href="#sec-radius">Corner Radius 圆角</a></li>
       <li><a href="#sec-colors">Colors 颜色</a></li>
       <li><a href="#sec-shadows">Shadows 阴影</a></li>
@@ -1625,6 +1626,121 @@ body{
         <div><span style="font-size:13px;color:var(--label-tertiary)">sectionSpacing</span><br><strong>28pt</strong></div>
         <div><span style="font-size:13px;color:var(--label-tertiary)">cardPadding</span><br><strong>16pt</strong></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ LIQUID GLASS COMPONENTS ═══════════════ -->
+  <section class="section" id="sec-liquid-glass">
+    <h2 class="section-title">Liquid Glass 液态玻璃组件</h2>
+    <p style="color:var(--label-secondary);margin-bottom:20px">iOS 26 液态玻璃五大核心组件 — 仅用于导航/控制层，禁止用于内容卡片</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--cardSpacing)">
+
+      <!-- Glass Button -->
+      <div class="card" style="position:relative;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="mouse-pointer-click" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+          <div>
+            <div style="font-weight:600;font-size:15px">Glass Button 玻璃按钮</div>
+            <div style="font-size:12px;color:var(--label-tertiary)">.glassEffect(.regular.interactive())</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">单个液态玻璃按钮，系统自带按压缩放 + 弹跳 + 闪烁反馈</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button onclick="this.style.transform='scale(0.92)';setTimeout(()=>this.style.transform='scale(1)',200)" style="padding:8px 18px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.24),rgba(120,120,128,0.12));backdrop-filter:blur(20px);color:var(--label-primary);font-size:13px;cursor:pointer;transition:transform .2s cubic-bezier(0.34,1.56,0.64,1)">筛选</button>
+          <button onclick="this.style.transform='scale(0.92)';setTimeout(()=>this.style.transform='scale(1)',200)" style="padding:8px 18px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.24),rgba(120,120,128,0.12));backdrop-filter:blur(20px);color:var(--label-primary);font-size:13px;cursor:pointer;transition:transform .2s cubic-bezier(0.34,1.56,0.64,1)">全部</button>
+          <button onclick="this.style.transform='scale(0.92)';setTimeout(()=>this.style.transform='scale(1)',200)" style="padding:8px 18px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.24),rgba(120,120,128,0.12));backdrop-filter:blur(20px);color:var(--label-primary);font-size:13px;cursor:pointer;transition:transform .2s cubic-bezier(0.34,1.56,0.64,1)">收藏</button>
+        </div>
+        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
+          <code>.buttonStyle(.plain)</code> + <code>.glassEffect(.regular.interactive(), in: .capsule)</code>
+        </div>
+      </div>
+
+      <!-- Glass Morphing -->
+      <div class="card" style="position:relative;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="git-merge" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+          <div>
+            <div style="font-weight:600;font-size:15px">Glass Morphing 流体变形</div>
+            <div style="font-size:12px;color:var(--label-tertiary)">GlassEffectContainer + @Namespace</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">多个玻璃元素展开/收起时流体变形，融合与分离</p>
+        <div id="morphDemo" style="display:flex;gap:8px;align-items:center">
+          <button onclick="toggleMorph()" style="padding:8px 18px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.24),rgba(120,120,128,0.12));backdrop-filter:blur(20px);color:var(--label-primary);font-size:13px;cursor:pointer;transition:all .4s cubic-bezier(0.34,1.56,0.64,1)" id="morphToggle">展开</button>
+          <div id="morphItems" style="display:flex;gap:6px;overflow:hidden;max-width:0;opacity:0;transition:all .4s cubic-bezier(0.34,1.56,0.64,1)">
+            <button style="padding:6px 14px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.1));backdrop-filter:blur(20px);color:var(--label-primary);font-size:12px;white-space:nowrap">操作 A</button>
+            <button style="padding:6px 14px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.1));backdrop-filter:blur(20px);color:var(--label-primary);font-size:12px;white-space:nowrap">操作 B</button>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
+          <code>GlassEffectContainer(spacing:)</code> + <code>.glassEffectID(_:in:)</code> + <code>withAnimation(.bouncy)</code>
+        </div>
+      </div>
+
+      <!-- Glass Tint -->
+      <div class="card" style="position:relative;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="palette" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+          <div>
+            <div style="font-weight:600;font-size:15px">Glass Tint 玻璃着色</div>
+            <div style="font-size:12px;color:var(--label-tertiary)">.tint(.accentColor)</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">给玻璃加色彩倾向，用于语义区分（选中态/删除/确认）</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="padding:6px 16px;border-radius:99px;background:linear-gradient(135deg,rgba(0,122,255,0.25),rgba(0,122,255,0.1));backdrop-filter:blur(20px);color:#007AFF;font-size:13px;font-weight:600">选中态</span>
+          <span style="padding:6px 16px;border-radius:99px;background:linear-gradient(135deg,rgba(255,59,48,0.25),rgba(255,59,48,0.1));backdrop-filter:blur(20px);color:#FF3B30;font-size:13px">删除</span>
+          <span style="padding:6px 16px;border-radius:99px;background:linear-gradient(135deg,rgba(52,199,89,0.25),rgba(52,199,89,0.1));backdrop-filter:blur(20px);color:#34C759;font-size:13px">确认</span>
+          <span style="padding:6px 16px;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);color:var(--label-secondary);font-size:13px">未选中</span>
+        </div>
+        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
+          <code>.glassEffect(.regular.tint(.red))</code> / <code>.tint(.green)</code> / <code>.tint(.accentColor)</code>
+        </div>
+      </div>
+
+      <!-- Segmented Picker -->
+      <div class="card" style="position:relative;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="columns-2" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+          <div>
+            <div style="font-weight:600;font-size:15px">Segmented Picker 分段选择器</div>
+            <div style="font-size:12px;color:var(--label-tertiary)">.pickerStyle(.segmented)</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">系统原生分段选择器，iOS 26 自动玻璃化</p>
+        <div style="display:flex;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,rgba(120,120,128,0.18),rgba(120,120,128,0.06));backdrop-filter:blur(20px)">
+          <button onclick="switchSegment(this)" class="seg-active" style="flex:1;padding:8px 0;border:none;background:rgba(255,255,255,0.22);color:var(--label-primary);font-size:13px;font-weight:600;cursor:pointer;transition:all .25s ease">列表</button>
+          <button onclick="switchSegment(this)" style="flex:1;padding:8px 0;border:none;background:transparent;color:var(--label-secondary);font-size:13px;cursor:pointer;transition:all .25s ease">网格</button>
+          <button onclick="switchSegment(this)" style="flex:1;padding:8px 0;border:none;background:transparent;color:var(--label-secondary);font-size:13px;cursor:pointer;transition:all .25s ease">地图</button>
+        </div>
+        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
+          <code>Picker(selection:) { }.pickerStyle(.segmented)</code> — 无需额外修饰
+        </div>
+      </div>
+
+      <!-- Glass Tab Bar -->
+      <div class="card" style="position:relative;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="panel-bottom" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+          <div>
+            <div style="font-weight:600;font-size:15px">Glass Tab Bar 玻璃导航栏</div>
+            <div style="font-size:12px;color:var(--label-tertiary)">TabView + .tabBarMinimizeBehavior</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">系统 TabView 自动玻璃化，支持滚动时自动缩小</p>
+        <div style="border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(120,120,128,0.16),rgba(120,120,128,0.06));backdrop-filter:blur(20px);padding:8px 0">
+          <div style="display:flex;justify-content:space-around;align-items:center">
+            <div onclick="switchTab(this)" class="tab-active" style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 12px;border-radius:12px;background:rgba(0,122,255,0.12);transition:all .3s ease"><i data-lucide="home" style="width:20px;height:20px;color:#007AFF"></i><span style="font-size:10px;color:#007AFF;font-weight:500">首页</span></div>
+            <div onclick="switchTab(this)" style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 12px;border-radius:12px;transition:all .3s ease"><i data-lucide="search" style="width:20px;height:20px;color:var(--label-secondary)"></i><span style="font-size:10px;color:var(--label-secondary)">探索</span></div>
+            <div onclick="switchTab(this)" style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 12px;border-radius:12px;transition:all .3s ease"><i data-lucide="user" style="width:20px;height:20px;color:var(--label-secondary)"></i><span style="font-size:10px;color:var(--label-secondary)">我的</span></div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
+          <code>TabView { Tab("首页", systemImage: "house") { } }</code> + <code>.tabBarMinimizeBehavior(.onScrollDown)</code>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -3692,6 +3808,23 @@ function toggleTheme(){
   html.setAttribute('data-theme',isDark?'light':'dark');
   document.getElementById('themeBtn').textContent=isDark?'☀️':'🌙';
   renderColors();
+}
+
+/* ── Liquid Glass Demos ── */
+function toggleMorph(){
+  const items=document.getElementById('morphItems');
+  const btn=document.getElementById('morphToggle');
+  const expanded=items.style.maxWidth!=='0px'&&items.style.maxWidth!=='';
+  if(expanded){items.style.maxWidth='0';items.style.opacity='0';btn.textContent='展开';}
+  else{items.style.maxWidth='300px';items.style.opacity='1';btn.textContent='收起';}
+}
+function switchSegment(el){
+  el.parentElement.querySelectorAll('button').forEach(b=>{b.style.background='transparent';b.style.color='var(--label-secondary)';b.style.fontWeight='400';});
+  el.style.background='rgba(255,255,255,0.22)';el.style.color='var(--label-primary)';el.style.fontWeight='600';
+}
+function switchTab(el){
+  el.parentElement.querySelectorAll('div[onclick]').forEach(d=>{d.style.background='transparent';d.querySelector('i').style.color='var(--label-secondary)';d.querySelector('span').style.color='var(--label-secondary)';});
+  el.style.background='rgba(0,122,255,0.12)';el.querySelector('i').style.color='#007AFF';el.querySelector('span').style.color='#007AFF';
 }
 
 /* ── Sidebar Collapse ── */
