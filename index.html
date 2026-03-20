@@ -150,6 +150,168 @@ body{
 .modifier-spec{font-size:12px;color:var(--label-tertiary);margin:2px 0}
 .modifier-desc{font-size:13px;color:var(--label-secondary)}
 
+/* ── Liquid Glass Components ── */
+.lg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.lg-card{
+  border-radius:var(--glassRadius);padding:20px;position:relative;overflow:hidden;
+  background:var(--card-bg);border:1px solid var(--separator);
+}
+.lg-card-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.lg-card-icon{
+  width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(174,174,178,0.18),rgba(174,174,178,0.06));
+  backdrop-filter:blur(12px);
+  border:0.5px solid rgba(255,255,255,0.12);
+}
+.lg-card-title{font-size:15px;font-weight:600;color:var(--label-primary);letter-spacing:-0.2px}
+.lg-card-api{font-size:11px;color:var(--label-tertiary);font-family:"SF Mono",Menlo,monospace}
+.lg-card-desc{font-size:13px;color:var(--label-secondary);margin-bottom:16px;line-height:1.5}
+.lg-demo-area{
+  border-radius:16px;padding:20px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#1a1a3e 0%,#2d1b4e 30%,#1b2d4a 60%,#1a2a3e 100%);
+  display:flex;align-items:center;justify-content:center;min-height:72px;
+}
+.lg-demo-area::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 20%,rgba(120,80,220,0.18) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 80%,rgba(60,140,255,0.12) 0%,transparent 50%),
+             radial-gradient(ellipse at 50% 50%,rgba(200,120,255,0.06) 0%,transparent 40%);
+  pointer-events:none;
+}
+[data-theme="light"] .lg-demo-area{
+  background:linear-gradient(135deg,#e8e0f0 0%,#dce8f8 30%,#f0e8f0 60%,#e4ecf4 100%);
+}
+[data-theme="light"] .lg-demo-area::before{
+  background:radial-gradient(ellipse at 30% 20%,rgba(140,100,240,0.12) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 80%,rgba(80,160,255,0.1) 0%,transparent 50%),
+             radial-gradient(ellipse at 50% 50%,rgba(220,140,255,0.06) 0%,transparent 40%);
+}
+/* Glass pill button simulation */
+.lg-pill{
+  padding:8px 20px;border:none;border-radius:99px;font-size:13px;cursor:pointer;position:relative;
+  background:linear-gradient(160deg,rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.05) 100%);
+  backdrop-filter:blur(40px) saturate(1.8);
+  -webkit-backdrop-filter:blur(40px) saturate(1.8);
+  color:rgba(255,255,255,0.92);
+  border:0.5px solid rgba(255,255,255,0.28);
+  box-shadow:0 1px 3px rgba(0,0,0,0.12),inset 0 1px 0 rgba(255,255,255,0.15),inset 0 -0.5px 0 rgba(0,0,0,0.08);
+  transition:transform .25s cubic-bezier(0.34,1.56,0.64,1),box-shadow .25s ease,background .25s ease;
+  text-shadow:0 0.5px 1px rgba(0,0,0,0.15);
+  font-weight:500;letter-spacing:-0.1px;
+}
+.lg-pill:hover{
+  background:linear-gradient(160deg,rgba(255,255,255,0.28) 0%,rgba(255,255,255,0.08) 100%);
+  box-shadow:0 2px 8px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.2),inset 0 -0.5px 0 rgba(0,0,0,0.08);
+}
+.lg-pill:active{transform:scale(0.93);box-shadow:0 0 2px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.1)}
+[data-theme="light"] .lg-pill{
+  background:linear-gradient(160deg,rgba(255,255,255,0.65) 0%,rgba(255,255,255,0.35) 100%);
+  color:rgba(0,0,0,0.78);border-color:rgba(255,255,255,0.6);
+  box-shadow:0 1px 4px rgba(0,0,0,0.06),0 2px 12px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.8),inset 0 -0.5px 0 rgba(0,0,0,0.04);
+  text-shadow:none;
+}
+[data-theme="light"] .lg-pill:hover{
+  background:linear-gradient(160deg,rgba(255,255,255,0.78) 0%,rgba(255,255,255,0.45) 100%);
+}
+/* Tinted pills */
+.lg-pill-tint{
+  padding:8px 20px;border-radius:99px;font-size:13px;font-weight:500;position:relative;
+  backdrop-filter:blur(40px) saturate(1.8);
+  -webkit-backdrop-filter:blur(40px) saturate(1.8);
+  box-shadow:0 1px 3px rgba(0,0,0,0.12),inset 0 1px 0 rgba(255,255,255,0.12);
+  letter-spacing:-0.1px;display:inline-block;
+}
+.lg-pill-blue{
+  background:linear-gradient(160deg,rgba(0,122,255,0.35) 0%,rgba(0,122,255,0.12) 100%);
+  color:#4da3ff;border:0.5px solid rgba(0,122,255,0.35);font-weight:600;
+}
+.lg-pill-red{
+  background:linear-gradient(160deg,rgba(255,59,48,0.3) 0%,rgba(255,59,48,0.1) 100%);
+  color:#ff6b63;border:0.5px solid rgba(255,59,48,0.3);
+}
+.lg-pill-green{
+  background:linear-gradient(160deg,rgba(52,199,89,0.3) 0%,rgba(52,199,89,0.1) 100%);
+  color:#5cd97b;border:0.5px solid rgba(52,199,89,0.3);
+}
+.lg-pill-neutral{
+  background:linear-gradient(160deg,rgba(255,255,255,0.14) 0%,rgba(255,255,255,0.04) 100%);
+  color:rgba(255,255,255,0.55);border:0.5px solid rgba(255,255,255,0.15);
+}
+[data-theme="light"] .lg-pill-blue{
+  background:linear-gradient(160deg,rgba(0,122,255,0.2) 0%,rgba(0,122,255,0.06) 100%);
+  color:#005ec4;border-color:rgba(0,122,255,0.25);
+}
+[data-theme="light"] .lg-pill-red{
+  background:linear-gradient(160deg,rgba(255,59,48,0.18) 0%,rgba(255,59,48,0.06) 100%);
+  color:#d42015;border-color:rgba(255,59,48,0.2);
+}
+[data-theme="light"] .lg-pill-green{
+  background:linear-gradient(160deg,rgba(52,199,89,0.18) 0%,rgba(52,199,89,0.06) 100%);
+  color:#1a8c3e;border-color:rgba(52,199,89,0.2);
+}
+[data-theme="light"] .lg-pill-neutral{
+  background:linear-gradient(160deg,rgba(0,0,0,0.06) 0%,rgba(0,0,0,0.02) 100%);
+  color:rgba(0,0,0,0.4);border-color:rgba(0,0,0,0.08);
+}
+/* Segmented control glass */
+.lg-seg{
+  display:flex;border-radius:10px;overflow:hidden;position:relative;
+  background:linear-gradient(160deg,rgba(255,255,255,0.12) 0%,rgba(255,255,255,0.04) 100%);
+  backdrop-filter:blur(40px) saturate(1.8);
+  -webkit-backdrop-filter:blur(40px) saturate(1.8);
+  border:0.5px solid rgba(255,255,255,0.18);
+  box-shadow:0 1px 3px rgba(0,0,0,0.1),inset 0 0.5px 0 rgba(255,255,255,0.1);
+}
+[data-theme="light"] .lg-seg{
+  background:linear-gradient(160deg,rgba(255,255,255,0.55) 0%,rgba(255,255,255,0.3) 100%);
+  border-color:rgba(255,255,255,0.5);
+  box-shadow:0 1px 4px rgba(0,0,0,0.05),inset 0 0.5px 0 rgba(255,255,255,0.6);
+}
+.lg-seg button{
+  flex:1;padding:8px 0;border:none;background:transparent;font-size:13px;cursor:pointer;
+  color:rgba(255,255,255,0.5);transition:all .3s cubic-bezier(0.34,1.56,0.64,1);position:relative;
+}
+[data-theme="light"] .lg-seg button{color:rgba(0,0,0,0.4)}
+.lg-seg button.seg-on{
+  background:linear-gradient(160deg,rgba(255,255,255,0.25) 0%,rgba(255,255,255,0.1) 100%);
+  color:rgba(255,255,255,0.95);font-weight:600;
+  box-shadow:0 1px 4px rgba(0,0,0,0.12);
+  border-radius:8px;margin:2px;
+}
+[data-theme="light"] .lg-seg button.seg-on{
+  background:linear-gradient(160deg,rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.6) 100%);
+  color:rgba(0,0,0,0.85);
+  box-shadow:0 1px 6px rgba(0,0,0,0.08);
+}
+/* Tab bar glass */
+.lg-tabbar{
+  border-radius:22px;overflow:hidden;position:relative;padding:10px 4px;
+  background:linear-gradient(160deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.03) 100%);
+  backdrop-filter:blur(40px) saturate(1.8);
+  -webkit-backdrop-filter:blur(40px) saturate(1.8);
+  border:0.5px solid rgba(255,255,255,0.15);
+  box-shadow:0 2px 12px rgba(0,0,0,0.15),0 0 1px rgba(255,255,255,0.1),inset 0 0.5px 0 rgba(255,255,255,0.08);
+}
+[data-theme="light"] .lg-tabbar{
+  background:linear-gradient(160deg,rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.35) 100%);
+  border-color:rgba(255,255,255,0.55);
+  box-shadow:0 2px 12px rgba(0,0,0,0.06),0 0 1px rgba(0,0,0,0.05),inset 0 0.5px 0 rgba(255,255,255,0.7);
+}
+.lg-tab{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:6px 16px;border-radius:14px;transition:all .3s ease}
+.lg-tab i{width:22px;height:22px;color:rgba(255,255,255,0.4);transition:color .3s ease}
+.lg-tab span{font-size:10px;font-weight:500;color:rgba(255,255,255,0.4);transition:color .3s ease}
+[data-theme="light"] .lg-tab i{color:rgba(0,0,0,0.35)}
+[data-theme="light"] .lg-tab span{color:rgba(0,0,0,0.35)}
+.lg-tab.tab-on{background:rgba(0,122,255,0.15)}
+.lg-tab.tab-on i{color:#007AFF}
+.lg-tab.tab-on span{color:#007AFF}
+.lg-code{
+  margin-top:14px;padding:8px 12px;border-radius:8px;font-size:11px;
+  background:var(--code-bg);color:var(--label-tertiary);
+  font-family:"SF Mono",Menlo,monospace;line-height:1.6;
+}
+.lg-code code{font-size:11px;color:var(--accent)}
+
 /* ── Spacing Blocks ── */
 .spacing-grid{display:flex;flex-wrap:wrap;gap:var(--spaceBase);align-items:flex-end}
 .spacing-item{display:flex;flex-direction:column;align-items:center;gap:var(--spaceSM)}
@@ -1632,112 +1794,117 @@ body{
   <!-- ═══════════════ LIQUID GLASS COMPONENTS ═══════════════ -->
   <section class="section" id="sec-liquid-glass">
     <h2 class="section-title">Liquid Glass 液态玻璃组件</h2>
-    <p style="color:var(--label-secondary);margin-bottom:20px">iOS 26 液态玻璃五大核心组件 — 仅用于导航/控制层，禁止用于内容卡片</p>
+    <p style="color:var(--label-secondary);margin-bottom:24px;line-height:1.5">iOS 26 液态玻璃五大核心组件 — 仅用于导航/控制层，禁止用于内容卡片。<br><span style="font-size:12px;color:var(--label-tertiary)">以下为 CSS 近似模拟，真实效果需在 Xcode + 真机查看</span></p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--cardSpacing)">
+    <div class="lg-grid">
 
       <!-- Glass Button -->
-      <div class="card" style="position:relative;overflow:hidden">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="mouse-pointer-click" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+      <div class="lg-card">
+        <div class="lg-card-header">
+          <div class="lg-card-icon"><i data-lucide="mouse-pointer-click" style="width:20px;height:20px;color:var(--label-primary)"></i></div>
           <div>
-            <div style="font-weight:600;font-size:15px">Glass Button 玻璃按钮</div>
-            <div style="font-size:12px;color:var(--label-tertiary)">.glassEffect(.regular.interactive())</div>
+            <div class="lg-card-title">Glass Button 玻璃按钮</div>
+            <div class="lg-card-api">.glassEffect(.regular.interactive())</div>
           </div>
         </div>
-        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">单个液态玻璃按钮，系统自带按压缩放 + 弹跳 + 闪烁反馈</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button onclick="this.style.transform='scale(0.92)';setTimeout(()=>this.style.transform='scale(1)',200)" style="padding:8px 18px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.24),rgba(120,120,128,0.12));backdrop-filter:blur(20px);color:var(--label-primary);font-size:13px;cursor:pointer;transition:transform .2s cubic-bezier(0.34,1.56,0.64,1)">筛选</button>
-          <button onclick="this.style.transform='scale(0.92)';setTimeout(()=>this.style.transform='scale(1)',200)" style="padding:8px 18px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.24),rgba(120,120,128,0.12));backdrop-filter:blur(20px);color:var(--label-primary);font-size:13px;cursor:pointer;transition:transform .2s cubic-bezier(0.34,1.56,0.64,1)">全部</button>
-          <button onclick="this.style.transform='scale(0.92)';setTimeout(()=>this.style.transform='scale(1)',200)" style="padding:8px 18px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.24),rgba(120,120,128,0.12));backdrop-filter:blur(20px);color:var(--label-primary);font-size:13px;cursor:pointer;transition:transform .2s cubic-bezier(0.34,1.56,0.64,1)">收藏</button>
+        <p class="lg-card-desc">单个液态玻璃按钮，系统自带按压缩放 + 弹跳 + 闪烁反馈</p>
+        <div class="lg-demo-area" style="gap:10px">
+          <button class="lg-pill">筛选</button>
+          <button class="lg-pill">全部</button>
+          <button class="lg-pill">收藏</button>
         </div>
-        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
+        <div class="lg-code">
           <code>.buttonStyle(.plain)</code> + <code>.glassEffect(.regular.interactive(), in: .capsule)</code>
         </div>
       </div>
 
       <!-- Glass Morphing -->
-      <div class="card" style="position:relative;overflow:hidden">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="git-merge" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+      <div class="lg-card">
+        <div class="lg-card-header">
+          <div class="lg-card-icon"><i data-lucide="git-merge" style="width:20px;height:20px;color:var(--label-primary)"></i></div>
           <div>
-            <div style="font-weight:600;font-size:15px">Glass Morphing 流体变形</div>
-            <div style="font-size:12px;color:var(--label-tertiary)">GlassEffectContainer + @Namespace</div>
+            <div class="lg-card-title">Glass Morphing 流体变形</div>
+            <div class="lg-card-api">GlassEffectContainer + @Namespace</div>
           </div>
         </div>
-        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">多个玻璃元素展开/收起时流体变形，融合与分离</p>
-        <div id="morphDemo" style="display:flex;gap:8px;align-items:center">
-          <button onclick="toggleMorph()" style="padding:8px 18px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.24),rgba(120,120,128,0.12));backdrop-filter:blur(20px);color:var(--label-primary);font-size:13px;cursor:pointer;transition:all .4s cubic-bezier(0.34,1.56,0.64,1)" id="morphToggle">展开</button>
-          <div id="morphItems" style="display:flex;gap:6px;overflow:hidden;max-width:0;opacity:0;transition:all .4s cubic-bezier(0.34,1.56,0.64,1)">
-            <button style="padding:6px 14px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.1));backdrop-filter:blur(20px);color:var(--label-primary);font-size:12px;white-space:nowrap">操作 A</button>
-            <button style="padding:6px 14px;border:none;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.1));backdrop-filter:blur(20px);color:var(--label-primary);font-size:12px;white-space:nowrap">操作 B</button>
+        <p class="lg-card-desc">多个玻璃元素展开/收起时流体变形，融合与分离</p>
+        <div class="lg-demo-area" style="justify-content:flex-start;gap:8px">
+          <button class="lg-pill" onclick="toggleMorph()" id="morphToggle">展开</button>
+          <div id="morphItems" style="display:flex;gap:8px;overflow:hidden;max-width:0;opacity:0;transition:all .45s cubic-bezier(0.34,1.56,0.64,1)">
+            <button class="lg-pill" style="white-space:nowrap">操作 A</button>
+            <button class="lg-pill" style="white-space:nowrap">操作 B</button>
           </div>
         </div>
-        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
+        <div class="lg-code">
           <code>GlassEffectContainer(spacing:)</code> + <code>.glassEffectID(_:in:)</code> + <code>withAnimation(.bouncy)</code>
         </div>
       </div>
 
       <!-- Glass Tint -->
-      <div class="card" style="position:relative;overflow:hidden">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="palette" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+      <div class="lg-card">
+        <div class="lg-card-header">
+          <div class="lg-card-icon"><i data-lucide="palette" style="width:20px;height:20px;color:var(--label-primary)"></i></div>
           <div>
-            <div style="font-weight:600;font-size:15px">Glass Tint 玻璃着色</div>
-            <div style="font-size:12px;color:var(--label-tertiary)">.tint(.accentColor)</div>
+            <div class="lg-card-title">Glass Tint 玻璃着色</div>
+            <div class="lg-card-api">.glassEffect(.regular.tint(.color))</div>
           </div>
         </div>
-        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">给玻璃加色彩倾向，用于语义区分（选中态/删除/确认）</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <span style="padding:6px 16px;border-radius:99px;background:linear-gradient(135deg,rgba(0,122,255,0.25),rgba(0,122,255,0.1));backdrop-filter:blur(20px);color:#007AFF;font-size:13px;font-weight:600">选中态</span>
-          <span style="padding:6px 16px;border-radius:99px;background:linear-gradient(135deg,rgba(255,59,48,0.25),rgba(255,59,48,0.1));backdrop-filter:blur(20px);color:#FF3B30;font-size:13px">删除</span>
-          <span style="padding:6px 16px;border-radius:99px;background:linear-gradient(135deg,rgba(52,199,89,0.25),rgba(52,199,89,0.1));backdrop-filter:blur(20px);color:#34C759;font-size:13px">确认</span>
-          <span style="padding:6px 16px;border-radius:99px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);color:var(--label-secondary);font-size:13px">未选中</span>
+        <p class="lg-card-desc">给玻璃加色彩倾向，用于语义区分（选中态/删除/确认）</p>
+        <div class="lg-demo-area" style="gap:10px;flex-wrap:wrap">
+          <span class="lg-pill-tint lg-pill-blue">选中态</span>
+          <span class="lg-pill-tint lg-pill-red">删除</span>
+          <span class="lg-pill-tint lg-pill-green">确认</span>
+          <span class="lg-pill-tint lg-pill-neutral">未选中</span>
         </div>
-        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
+        <div class="lg-code">
           <code>.glassEffect(.regular.tint(.red))</code> / <code>.tint(.green)</code> / <code>.tint(.accentColor)</code>
         </div>
       </div>
 
       <!-- Segmented Picker -->
-      <div class="card" style="position:relative;overflow:hidden">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="columns-2" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+      <div class="lg-card">
+        <div class="lg-card-header">
+          <div class="lg-card-icon"><i data-lucide="columns-2" style="width:20px;height:20px;color:var(--label-primary)"></i></div>
           <div>
-            <div style="font-weight:600;font-size:15px">Segmented Picker 分段选择器</div>
-            <div style="font-size:12px;color:var(--label-tertiary)">.pickerStyle(.segmented)</div>
+            <div class="lg-card-title">Segmented Picker 分段选择器</div>
+            <div class="lg-card-api">.pickerStyle(.segmented)</div>
           </div>
         </div>
-        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">系统原生分段选择器，iOS 26 自动玻璃化</p>
-        <div style="display:flex;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,rgba(120,120,128,0.18),rgba(120,120,128,0.06));backdrop-filter:blur(20px)">
-          <button onclick="switchSegment(this)" class="seg-active" style="flex:1;padding:8px 0;border:none;background:rgba(255,255,255,0.22);color:var(--label-primary);font-size:13px;font-weight:600;cursor:pointer;transition:all .25s ease">列表</button>
-          <button onclick="switchSegment(this)" style="flex:1;padding:8px 0;border:none;background:transparent;color:var(--label-secondary);font-size:13px;cursor:pointer;transition:all .25s ease">网格</button>
-          <button onclick="switchSegment(this)" style="flex:1;padding:8px 0;border:none;background:transparent;color:var(--label-secondary);font-size:13px;cursor:pointer;transition:all .25s ease">地图</button>
+        <p class="lg-card-desc">系统原生分段选择器，iOS 26 自动玻璃化，无需额外修饰</p>
+        <div class="lg-demo-area">
+          <div class="lg-seg" style="width:100%;max-width:320px">
+            <button class="seg-on" onclick="switchSegment(this)">列表</button>
+            <button onclick="switchSegment(this)">网格</button>
+            <button onclick="switchSegment(this)">地图</button>
+          </div>
         </div>
-        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
-          <code>Picker(selection:) { }.pickerStyle(.segmented)</code> — 无需额外修饰
+        <div class="lg-code">
+          <code>Picker(selection:) { }.pickerStyle(.segmented)</code> — iOS 26 自动玻璃化
         </div>
       </div>
 
       <!-- Glass Tab Bar -->
-      <div class="card" style="position:relative;overflow:hidden">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(120,120,128,0.2),rgba(120,120,128,0.08));backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center"><i data-lucide="panel-bottom" style="width:18px;height:18px;color:var(--label-primary)"></i></div>
+      <div class="lg-card">
+        <div class="lg-card-header">
+          <div class="lg-card-icon"><i data-lucide="panel-bottom" style="width:20px;height:20px;color:var(--label-primary)"></i></div>
           <div>
-            <div style="font-weight:600;font-size:15px">Glass Tab Bar 玻璃导航栏</div>
-            <div style="font-size:12px;color:var(--label-tertiary)">TabView + .tabBarMinimizeBehavior</div>
+            <div class="lg-card-title">Glass Tab Bar 玻璃导航栏</div>
+            <div class="lg-card-api">TabView + .tabBarMinimizeBehavior</div>
           </div>
         </div>
-        <p style="font-size:13px;color:var(--label-secondary);margin-bottom:14px">系统 TabView 自动玻璃化，支持滚动时自动缩小</p>
-        <div style="border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(120,120,128,0.16),rgba(120,120,128,0.06));backdrop-filter:blur(20px);padding:8px 0">
-          <div style="display:flex;justify-content:space-around;align-items:center">
-            <div onclick="switchTab(this)" class="tab-active" style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 12px;border-radius:12px;background:rgba(0,122,255,0.12);transition:all .3s ease"><i data-lucide="home" style="width:20px;height:20px;color:#007AFF"></i><span style="font-size:10px;color:#007AFF;font-weight:500">首页</span></div>
-            <div onclick="switchTab(this)" style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 12px;border-radius:12px;transition:all .3s ease"><i data-lucide="search" style="width:20px;height:20px;color:var(--label-secondary)"></i><span style="font-size:10px;color:var(--label-secondary)">探索</span></div>
-            <div onclick="switchTab(this)" style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 12px;border-radius:12px;transition:all .3s ease"><i data-lucide="user" style="width:20px;height:20px;color:var(--label-secondary)"></i><span style="font-size:10px;color:var(--label-secondary)">我的</span></div>
+        <p class="lg-card-desc">系统 TabView 自动玻璃化，支持滚动时自动缩小</p>
+        <div class="lg-demo-area">
+          <div class="lg-tabbar" style="width:100%;max-width:360px">
+            <div style="display:flex;justify-content:space-around;align-items:center">
+              <div class="lg-tab tab-on" onclick="switchTab(this)"><i data-lucide="home"></i><span>首页</span></div>
+              <div class="lg-tab" onclick="switchTab(this)"><i data-lucide="search"></i><span>探索</span></div>
+              <div class="lg-tab" onclick="switchTab(this)"><i data-lucide="user"></i><span>我的</span></div>
+            </div>
           </div>
         </div>
-        <div style="margin-top:12px;padding:8px 12px;border-radius:8px;background:var(--bg-secondary);font-size:11px;color:var(--label-tertiary)">
-          <code>TabView { Tab("首页", systemImage: "house") { } }</code> + <code>.tabBarMinimizeBehavior(.onScrollDown)</code>
+        <div class="lg-code">
+          <code>TabView { Tab("首页", systemImage: "house") { } }</code><br>
+          + <code>.tabBarMinimizeBehavior(.onScrollDown)</code>
         </div>
       </div>
 
@@ -3819,12 +3986,12 @@ function toggleMorph(){
   else{items.style.maxWidth='300px';items.style.opacity='1';btn.textContent='收起';}
 }
 function switchSegment(el){
-  el.parentElement.querySelectorAll('button').forEach(b=>{b.style.background='transparent';b.style.color='var(--label-secondary)';b.style.fontWeight='400';});
-  el.style.background='rgba(255,255,255,0.22)';el.style.color='var(--label-primary)';el.style.fontWeight='600';
+  el.closest('.lg-seg').querySelectorAll('button').forEach(b=>b.classList.remove('seg-on'));
+  el.classList.add('seg-on');
 }
 function switchTab(el){
-  el.parentElement.querySelectorAll('div[onclick]').forEach(d=>{d.style.background='transparent';d.querySelector('i').style.color='var(--label-secondary)';d.querySelector('span').style.color='var(--label-secondary)';});
-  el.style.background='rgba(0,122,255,0.12)';el.querySelector('i').style.color='#007AFF';el.querySelector('span').style.color='#007AFF';
+  el.closest('.lg-tabbar').querySelectorAll('.lg-tab').forEach(t=>t.classList.remove('tab-on'));
+  el.classList.add('tab-on');
 }
 
 /* ── Sidebar Collapse ── */
